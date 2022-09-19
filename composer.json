@@ -1,0 +1,16 @@
+{
+    "name": "samiu/admin-chat-box",
+    "license": "GPL-v2",
+    "autoload": {
+        "psr-4": {
+            "ACB\\Inc\\": "./inc"
+        }
+    },
+    "authors": [
+        {
+            "name": "sabbirsam",
+            "email": "samiubat14@gmail.com"
+        }
+    ],
+    "require": {}
+}
