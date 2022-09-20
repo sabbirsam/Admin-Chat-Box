@@ -12,13 +12,15 @@ final class ACB_DbTables {
         $wpdb->hide_errors();
         $collate = $wpdb->get_charset_collate();
 
-        $table=$wpdb->prefix. 'simple_form_tables';
+        $table=$wpdb->prefix. 'acb_admin_chat_box';
 
         $sql = "CREATE TABLE ".$table." (
             `id` INT(255) NOT NULL AUTO_INCREMENT,
-            `form_name` VARCHAR(255) DEFAULT NULL,
-            `form_fields` LONGTEXT,
+            `email` VARCHAR(255) NOT NULL,
+            `sender` LONGTEXT,
+            `msg` LONGTEXT,
             time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+            date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
             PRIMARY KEY (`id`)
         ) ENGINE=InnoDB ".$collate."";
 

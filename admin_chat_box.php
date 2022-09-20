@@ -8,7 +8,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Admin Chat Box
- * Plugin URI: https://github.com/sabbirsam/
+ * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box
  * Description: 
  * Version:           1.0.3
  * Requires at least: 5.9 or higher
@@ -32,10 +32,10 @@ use ACB\Inc\ACB_Enqueue;
 use ACB\Inc\ACB_DbTables;
 use ACB\Inc\ACB_Activate;
 use ACB\Inc\ACB_Deactivate;
-use ACB\Inc\ACB_AjaxHandler;
 use ACB\Inc\ACB_BaseController;
 use ACB\Inc\ACB_AdminDashboard;
-use ACB\Inc\ACB_SaveTablesData;
+use ACB\Inc\ACB_AjaxHandler;
+// use ACB\Inc\ACB_SaveTablesData;
 
 
 if(!class_exists('ACB_AdminChatBox')){
@@ -56,13 +56,14 @@ if(!class_exists('ACB_AdminChatBox')){
          */
         public function includes() {
             new ACB_AdminDashboard(); 
-            // $enqueue=new ACB_Enqueue();
-            // $enqueue->register();
-            // new ACB_BaseController();
-            // new ACB_AjaxHandler();
-            // $create_table = new ACB_DbTables();
+            $enqueue=new ACB_Enqueue();
+            $enqueue->register();
+            new ACB_DbTables();
+            new ACB_BaseController();
+            new ACB_AjaxHandler();
+            
             // $save_table = new ACB_SaveTablesData();
-            // new ACB_SfShortcode();
+
         }
         function acb_activate(){   
             ACB_Activate::acb_activate();
