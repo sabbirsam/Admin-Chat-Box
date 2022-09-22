@@ -4,7 +4,9 @@ namespace ACB\Inc;
 use \ACB\Inc\Ajax_Parts\ACB_MessageCreation;
 
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
-
+/**
+ * All Ajax call here
+ */
 class ACB_AjaxHandler {
 
     public function __construct() {

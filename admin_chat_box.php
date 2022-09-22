@@ -10,7 +10,7 @@
  * Plugin Name: Admin Chat Box
  * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box
  * Description: 
- * Version:           1.0.3
+ * Version:           1.0.0
  * Requires at least: 5.9 or higher
  * Requires PHP:      5.4 or higher
  * Author:            SABBIRSAM

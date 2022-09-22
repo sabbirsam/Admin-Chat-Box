@@ -2,7 +2,9 @@
 namespace ACB\Inc;
 
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
-
+/**
+ * Create Chat box database table 
+ */
 final class ACB_DbTables {
     private $connection;
     private $sql;

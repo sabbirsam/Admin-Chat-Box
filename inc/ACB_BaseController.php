@@ -5,7 +5,9 @@
 namespace ACB\Inc;
 
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
-
+/**
+ * All path generated
+ */
 class ACB_BaseController
 {
     public $plugin_path;

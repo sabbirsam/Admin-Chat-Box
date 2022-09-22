@@ -1,9 +1,10 @@
 (function ($) {
     $(document).ready(function () {
+        var nonce = $('#msg').attr("data-nonce");
 
         var data = {
             action: "show_user_inputed_data",
-            // result: "here need to add res"
+            nonce: nonce
         };
         // console.log(data);
 
@@ -11,13 +12,9 @@
             $.ajax({
                 data: data,
                 type: "GET",
-                // type:'post',
                 url: show_user_inputed_data.ajaxurl, 
-                // async: false,
-                // dataType: "html",
                 success: (function(result) {
                     $("#vegan").html(result);
-                    // console.log(result);
                 })
             })
         };
