@@ -7,7 +7,6 @@ final class ACB_DbTables {
     private $connection;
     private $sql;
     public function __construct() {
-        
         global $wpdb;
         $wpdb->hide_errors();
         $collate = $wpdb->get_charset_collate();
@@ -19,8 +18,8 @@ final class ACB_DbTables {
             `email` VARCHAR(255) NOT NULL,
             `sender` LONGTEXT,
             `msg` LONGTEXT,
-            time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-            date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+            time datetime DEFAULT '0000-00-00' NOT NULL,
+            date datetime DEFAULT '0000-00-00' NOT NULL,
             PRIMARY KEY (`id`)
         ) ENGINE=InnoDB ".$collate."";
 

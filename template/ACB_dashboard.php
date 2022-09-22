@@ -1,10 +1,33 @@
 <?php 
 if ( is_user_logged_in() ) {
+    
+    $user = wp_get_current_user();
+
+    $email = $user->user_email;
+    $name = $user->display_name; 
+    $msg =isset( $_POST['msg']) ?  $_POST['msg'] :''; 
+    $date = date('Y-m-d H:i:s');
+	$time = date('g:i a');
+
+
+    if ($msg) {
+
+        global $wpdb;
+        $table=$wpdb->prefix. 'acb_admin_chat_box';
+        $data = array('email' => $email, 'sender' => $name, 'msg' => $msg,'time' => $time,'date' => $date);
+        $format = array('%s','%s','%s','%s','%s');
+        $wpdb->insert($table,$data,$format);
+        $save = $wpdb->insert_id;
+        
+    }
+
+  
+    
     ?>
 <div align="center"><br />
     <span class="heading">Welcome to Chat Box</span><br />
     <?php 
-    $user = wp_get_current_user();
+   
 ?>
     <br /><br />
     <br />
@@ -28,8 +51,8 @@ if ( is_user_logged_in() ) {
             </div>
             <!--chat-log -->
         </div>
-        <form method="post" action="" id="myForm">
-            <form method="post" action="" id="myForm">
+        <form method="post" action="" id="acb_Form">
+            <form method="post" action="" id="acb_Form">
                 <div class="chat-input">
 
                     <!-- <input type="text" id="chat-input" placeholder="Send a message..."/> -->

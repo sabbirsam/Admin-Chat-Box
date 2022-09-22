@@ -32,10 +32,9 @@ use ACB\Inc\ACB_Enqueue;
 use ACB\Inc\ACB_DbTables;
 use ACB\Inc\ACB_Activate;
 use ACB\Inc\ACB_Deactivate;
+use ACB\Inc\ACB_AjaxHandler;
 use ACB\Inc\ACB_BaseController;
 use ACB\Inc\ACB_AdminDashboard;
-use ACB\Inc\ACB_AjaxHandler;
-// use ACB\Inc\ACB_SaveTablesData;
 
 
 if(!class_exists('ACB_AdminChatBox')){
@@ -61,8 +60,6 @@ if(!class_exists('ACB_AdminChatBox')){
             new ACB_DbTables();
             new ACB_BaseController();
             new ACB_AjaxHandler();
-            
-            // $save_table = new ACB_SaveTablesData();
 
         }
         function acb_activate(){   

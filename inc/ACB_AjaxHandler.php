@@ -15,8 +15,6 @@ class ACB_AjaxHandler {
         /* Demo check Creation */
         add_action( 'wp_ajax_show_user_inputed_data', array( $this, 'ACB_message_creation' ) ); 
         add_action("wp_ajax_nopriv_show_user_inputed_data", array( $this, 'ACB_message_creation'));
-        
-        
     }
 
     /**Demo check Creation */

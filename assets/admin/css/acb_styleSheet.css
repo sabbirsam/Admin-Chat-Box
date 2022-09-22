@@ -4,11 +4,12 @@
     src: url(../fonts/trebuc.ttf);
 }
 
+/* my css other start  */
+div#vegan {
+    text-align: left;
+}
 
-/* body {
-    background-image:url(../images/bg.jpg);
-    background-repeat: repeat;
-} */
+/* my css   end */
 
 .heading {
     font-family: "Segoe UI";
