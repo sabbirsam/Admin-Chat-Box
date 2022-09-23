@@ -46,17 +46,16 @@ if ( is_user_logged_in() ) {
         <br>
         <label class="switch" for="acb_position">
             <span class="toggle-label">Set position:</span>
-            <input type="checkbox" id="acb_position" <?php if($a == 1){echo "checked";}?>
-                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <input type="checkbox" id="acb_position">
             <span class="slider round"></span>
         </label>
         <!-- button position  -->
-        <br>
-        <div class="left-right-btn">
-            <span class="c-button c-button--arrow-left" style="display:none" tabindex="0">
+
+        <div class="left-right-btn" id="left-right-btn-id">
+            <span class="c-button c-button--arrow-left" id="arrow-left" style="display:none" tabindex="0">
                 <span class="c-button__text">left</span>
             </span>
-            <span class="c-button c-button--arrow-right" style="display:none" tabindex="0">
+            <span class="c-button c-button--arrow-right" id="arrow-right" style="display:none" tabindex="0">
                 <span class="c-button__text">right</span>
             </span>
         </div>
@@ -65,10 +64,22 @@ if ( is_user_logged_in() ) {
         <br>
         <label class="switch" for="acb_customization">
             <span class="toggle-label">Customization:</span>
-            <input type="checkbox" id="acb_customization" <?php if($a == 1){echo "checked";}?>
-                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <input type="checkbox" id="acb_customization">
+
             <span class="slider round"></span>
         </label>
+
+        <div class="left-right-btn" id="left-right-btn-id">
+            <span class="color-picker">
+                <label for="acb_colorPicker">Choose Header color:
+                    <!-- <input type="color" value="#1DB8CE" id="acb_colorPicker" style="display:none"> -->
+                    <input type="color" id="acb_colorPicker" style="display:none">
+                </label>
+            </span>
+
+        </div>
+
+
         <br>
         <br>
 

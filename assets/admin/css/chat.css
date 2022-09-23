@@ -222,3 +222,9 @@
     clear: both;
     margin-bottom: 70px;
 }
+
+/* toogle color picker css  */
+span.color-picker {
+    font-size: 15px;
+    margin-left: 7px;
+}

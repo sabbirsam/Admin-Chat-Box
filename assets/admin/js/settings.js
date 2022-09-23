@@ -34,20 +34,50 @@
                 }
             });
         });
+        /**
+         * Set position
+         */
+
+         $('#acb_position').click(function() { 
+            $("#arrow-left").toggle().css({"margin-top": "53px"});
+            $("#arrow-right").toggle().css({"margin-top": "53px"});
+         });
+
+          /**
+         * Settings Customization 
+         */
+
+        $('.color-picker').hide();
+        $('#acb_customization').click(function() { 
+            $("#acb_colorPicker").toggle().css({"margin-top": "53px", "margin-left": "11px"});
+            $('.color-picker').toggle();
+            
+         });
+
+         
+        $("#acb_colorPicker").each(function () {
+ 
+       });
+
+
+
+        /**
+         * Chat open and close
+         */
 
         $("#chat-circle").click(function() {
             $(".chat-box").toggle('scale');
     
-        })
+        });
     
         $(".chat-box-toggle").click(function() {
-            // $("#chat-circle").toggle('scale');
             $(".chat-box").toggle('scale');
     
-        })
+        });
 
 
 
     });
+
 })(jQuery);
 
