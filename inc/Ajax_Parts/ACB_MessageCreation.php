@@ -13,9 +13,34 @@ class ACB_MessageCreation {
         /**
          * Message fetch from database
          */
+        $this->ACB_message_truncate();
         $this->ACB_message_creation();
        
     }
+    public function ACB_message_truncate() {
+        if ($_POST['action'] == 'acb_data_truncate') {
+            $acb_trunc = $_POST['acb_trunc'];
+
+            $a= get_option( 'acb_truncate_value'); 
+
+            if(is_numeric($a)){
+                update_option( 'acb_truncate_value', $acb_trunc );
+            }  
+            
+            $res = '1';
+            if($a ==  $res){
+                global $wpdb;
+                $acb_truncate_table=$wpdb->prefix. 'acb_admin_chat_box';
+                $wpdb->query("TRUNCATE TABLE IF EXISTS {$acb_truncate_table} ");
+            }
+            echo gettype($a);
+            echo $a;
+            
+        }
+
+    }
+
+    
     /**
      * Fetch data from db 
      */
@@ -41,7 +66,11 @@ class ACB_MessageCreation {
 </span>
 <br />
 <?php
-          
-} } 
-die();     
-}}
+                    
+            } } 
+            die();     
+            }
+            
+
+
+}

@@ -14,16 +14,33 @@ class ACB_AjaxHandler {
     }
 
     public function events() {
+        
+        add_action( 'wp_ajax_acb_data_truncate', array( $this, 'ACB_message_truncate' ) ); 
+        add_action("wp_ajax_nopriv_acb_data_truncate", array( $this, 'ACB_message_truncate'));
+        
         /* Demo check Creation */
         add_action( 'wp_ajax_show_user_inputed_data', array( $this, 'ACB_message_creation' ) ); 
         add_action("wp_ajax_nopriv_show_user_inputed_data", array( $this, 'ACB_message_creation'));
+
+      
+
+        
+    }
+    /**Chat data truncate */
+       function ACB_message_truncate() {
+        $ACB_message_truncate = new ACB_MessageCreation();
+        $ACB_message_truncate->ACB_message_truncate();
+        
     }
 
-    /**Demo check Creation */
+
+    /**Chat data fetch */
     function ACB_message_creation() {
         $ACB_message_creation = new ACB_MessageCreation();
         $ACB_message_creation->ACB_message_creation();
         
     }
+
+  
 
 }

@@ -3,7 +3,8 @@ if ( is_user_logged_in() ) {
     
     $user = wp_get_current_user();
     $email = $user->user_email;
-    $name = $user->display_name; 
+    $name = $user->display_name;
+    $a = get_option( 'acb_truncate_value');
     
     if(isset($_POST['msg'])){
         $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
@@ -23,18 +24,71 @@ if ( is_user_logged_in() ) {
     }
     ?>
 <div style="align:center"><br />
-    <span class="heading"><?php _e("Welcome to Chat Box","acb");?></span><br />
+    <span class="heading"><?php _e("Chat Box","acb");?></span><br />
+    <h2>Settings Page</h2>
+    <!-- setting page  -->
+    <div>
+        <label class="switch" for="acb_frontend">
+            <span class="toggle-label">Activate frontend widgets:</span>
+            <input type="checkbox" id="acb_frontend" <?php if($a == 1){echo "checked";}?>
+                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <span class="slider round"></span>
+        </label>
+        <br>
+        <br>
+        <label class="switch" for="acb_backend">
+            <span class="toggle-label">Active Backend widgets:</span>
+            <input type="checkbox" id="acb_backend" <?php if($a == 1){echo "checked";}?>
+                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <span class="slider round"></span>
+        </label>
+        <br>
+        <br>
+        <label class="switch" for="acb_position">
+            <span class="toggle-label">Set position:</span>
+            <input type="checkbox" id="acb_position" <?php if($a == 1){echo "checked";}?>
+                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <span class="slider round"></span>
+        </label>
+        <!-- button position  -->
+        <br>
+        <div class="left-right-btn">
+            <span class="c-button c-button--arrow-left" style="display:none" tabindex="0">
+                <span class="c-button__text">left</span>
+            </span>
+            <span class="c-button c-button--arrow-right" style="display:none" tabindex="0">
+                <span class="c-button__text">right</span>
+            </span>
+        </div>
+        <!-- button position end -->
+        <br>
+        <br>
+        <label class="switch" for="acb_customization">
+            <span class="toggle-label">Customization:</span>
+            <input type="checkbox" id="acb_customization" <?php if($a == 1){echo "checked";}?>
+                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <span class="slider round"></span>
+        </label>
+        <br>
+        <br>
+
+        <label class="switch" for="acb_save_settings">
+            <span class="toggle-label">Save:</span>
+            <input type="checkbox" id="acb_save_settings" <?php if($a == 1){echo "checked";}?>
+                value="<?php echo isset( $a ) ?  $a :'0'; ?>">
+            <span class="slider"></span>
+        </label>
+
+    </div>
+    <!-- setting page  -->
     <?php 
-   
 ?>
     <br /><br />
     <br />
-
     <div id="chat-circle" class="btn btn-raised">
         <div id="chat-overlay"></div>
         <i class="material-icons"><?php _e("▶Snap","acb");?></i>
     </div>
-
     <div class="chat-box" id="sam">
         <div class="chat-box-header">
             <span class="chat-box-toggles"><i
@@ -45,14 +99,12 @@ if ( is_user_logged_in() ) {
             <div class="chat-box-overlay">
             </div>
             <div class="chat-logs">
-
             </div>
             <!--chat-log -->
         </div>
         <form method="post" action="" id="acb_Form">
             <form method="post" action="" id="acb_Form">
                 <div class="chat-input">
-
                     <!-- <input type="text" id="chat-input" placeholder="Send a message..."/> -->
                     <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
                         data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
@@ -61,7 +113,6 @@ if ( is_user_logged_in() ) {
             </form>
     </div>
 </div>
-
 </div>
 <?php
 }

@@ -9,6 +9,7 @@ final class ACB_DbTables {
     private $connection;
     private $sql;
     public function __construct() {
+        add_option( 'acb_truncate_value', 0 );
         global $wpdb;
         $wpdb->hide_errors();
         $collate = $wpdb->get_charset_collate();
