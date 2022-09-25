@@ -18,9 +18,7 @@ class ACB_MessageCreation {
        
     }
     public function ACB_message_truncate() {
-        if (sanitize_text_field($_POST['action']) != 'acb_data_truncate') {
-            die();
-        }
+        if (sanitize_text_field($_POST['action']) == 'acb_data_truncate') {
             $acb_frontend = $_POST['acb_frontend'];
             $acb_backend = $_POST['acb_backend'];
             $bg_color_value = $_POST['bg_color_value'];
@@ -34,22 +32,14 @@ class ACB_MessageCreation {
                 'acb_left_pos_value_settings'=>$left_pos_value,
                 'acb_right_pos_value_settings'=>$right_pos_value,
             );
-
-            update_option( 'acb_settings_value', json_encode($settings_page));
-            
-            // print_r($settings_page);
-
-            // $a= get_option( 'acb_settings_value'); 
-
-            // if(is_array($a)){
-            //     update_option( 'acb_settings_value', $settings_page );
-            // }  
-            
-       
+            if($settings_page){
+                update_option( 'acb_settings_value', json_encode($settings_page));
+                die();
+            }
+        }
 
     }
 
-    
     /**
      * Fetch data from db 
      */
@@ -76,10 +66,9 @@ class ACB_MessageCreation {
 <br />
 <?php
                     
-            } } 
-            die();     
-            }
-            
-
-
+                }
+            } 
+        die();     
+    }
+                
 }

@@ -6,7 +6,7 @@
             action: "show_user_inputed_data",
             nonce: nonce
         };
-        // console.log(data);
+        console.log(data);
 
         function ajaxCall() {
             $.ajax({
