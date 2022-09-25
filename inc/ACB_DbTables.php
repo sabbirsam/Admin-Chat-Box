@@ -9,7 +9,17 @@ final class ACB_DbTables {
     private $connection;
     private $sql;
     public function __construct() {
-        add_option( 'acb_truncate_value', 0 );
+        
+        $acb_default_options=array(
+            'acb_frontend_settings'=>"0",
+            'acb_backend_settings'=>"1",
+            'acb_bg_color_value_settings'=>"1",
+            'acb_left_pos_value_settings'=>"0",
+            'acb_right_pos_value_settings'=>"#5A5EB9",
+        );
+
+        add_option( 'acb_settings_value', json_encode($acb_default_options) );
+        
         global $wpdb;
         $wpdb->hide_errors();
         $collate = $wpdb->get_charset_collate();

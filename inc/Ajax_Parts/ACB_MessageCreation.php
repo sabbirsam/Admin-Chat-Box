@@ -18,25 +18,34 @@ class ACB_MessageCreation {
        
     }
     public function ACB_message_truncate() {
-        if ($_POST['action'] == 'acb_data_truncate') {
-            $acb_trunc = $_POST['acb_trunc'];
-
-            $a= get_option( 'acb_truncate_value'); 
-
-            if(is_numeric($a)){
-                update_option( 'acb_truncate_value', $acb_trunc );
-            }  
-            
-            $res = '1';
-            if($a ==  $res){
-                global $wpdb;
-                $acb_truncate_table=$wpdb->prefix. 'acb_admin_chat_box';
-                $wpdb->query("TRUNCATE TABLE IF EXISTS {$acb_truncate_table} ");
-            }
-            echo gettype($a);
-            echo $a;
-            
+        if (sanitize_text_field($_POST['action']) != 'acb_data_truncate') {
+            die();
         }
+            $acb_frontend = $_POST['acb_frontend'];
+            $acb_backend = $_POST['acb_backend'];
+            $bg_color_value = $_POST['bg_color_value'];
+            $left_pos_value = $_POST['left_pos_value'];
+            $right_pos_value = $_POST['right_pos_value'];
+
+            $settings_page = array(
+                'acb_frontend_settings'=>$acb_frontend,
+                'acb_backend_settings'=>$acb_backend,
+                'acb_bg_color_value_settings'=>$bg_color_value,
+                'acb_left_pos_value_settings'=>$left_pos_value,
+                'acb_right_pos_value_settings'=>$right_pos_value,
+            );
+
+            update_option( 'acb_settings_value', json_encode($settings_page));
+            
+            // print_r($settings_page);
+
+            // $a= get_option( 'acb_settings_value'); 
+
+            // if(is_array($a)){
+            //     update_option( 'acb_settings_value', $settings_page );
+            // }  
+            
+       
 
     }
 
