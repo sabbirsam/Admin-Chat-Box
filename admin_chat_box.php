@@ -31,6 +31,7 @@ if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
 use ACB\Inc\ACB_Enqueue;
 use ACB\Inc\ACB_DbTables;
 use ACB\Inc\ACB_Activate;
+use ACB\Inc\ACB_FrontChat;
 use ACB\Inc\ACB_Deactivate;
 use ACB\Inc\ACB_AjaxHandler;
 use ACB\Inc\ACB_BaseController;
@@ -58,8 +59,9 @@ if(!class_exists('ACB_AdminChatBox')){
             $enqueue=new ACB_Enqueue();
             $enqueue->register();
             new ACB_DbTables();
-            new ACB_BaseController();
+            new ACB_FrontChat();
             new ACB_AjaxHandler();
+            new ACB_BaseController();
 
         }
         function acb_activate(){   

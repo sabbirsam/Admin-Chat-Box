@@ -34,12 +34,12 @@
     border-radius: 50%;
     display: none;
 }
-
+/* position set  */
 .chat-box {
     display: none;
     background: #efefef;
     position: fixed;
-    right: 30px;
+    right: 179px;
     bottom: 50px;
     width: 350px;
     max-width: 85vw;
@@ -227,4 +227,8 @@
 span.color-picker {
     font-size: 15px;
     margin-left: 7px;
+}
+input#acb_colorPicker {
+    width: 100px;
+    height: 100px;
 }

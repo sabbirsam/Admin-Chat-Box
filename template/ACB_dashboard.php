@@ -10,6 +10,13 @@ if ( is_user_logged_in() ) {
     $front_end = $settings_update->acb_frontend_settings;
     // echo $front_end;
     $backend_settings = $settings_update->acb_backend_settings;
+    
+    $pos_value_settings = $settings_update->acb_position_settings;
+    //  echo $pos_value_settings;
+    $customization_value_settings = $settings_update->acb_customization_settings;
+    //  echo $customization_value_settings;
+
+
     $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
     $left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
     $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
@@ -58,7 +65,8 @@ if ( is_user_logged_in() ) {
         <!-- Position page  -->
         <label class="switch" for="acb_position">
             <span class="toggle-label">Set position:</span>
-            <input type="checkbox" id="acb_position">
+            <input type="checkbox" id="acb_position" <?php if($pos_value_settings == 1){echo "checked";}?>
+                value="<?php echo isset( $pos_value_settings ) ?  $pos_value_settings :'1'; ?>">
             <span class="slider round"></span>
         </label>
         <!-- button position  -->
@@ -81,7 +89,9 @@ if ( is_user_logged_in() ) {
         <!-- Customization page  -->
         <label class="switch" for="acb_customization">
             <span class="toggle-label">Customization:</span>
-            <input type="checkbox" id="acb_customization">
+            <input type="checkbox" id="acb_customization"
+                <?php if($customization_value_settings == 1){echo "checked";}?>
+                value="<?php echo isset( $customization_value_settings ) ?  $customization_value_settings :'1'; ?>">
 
             <span class="slider round"></span>
         </label>
@@ -113,11 +123,12 @@ if ( is_user_logged_in() ) {
 ?>
     <br /><br />
     <br />
+    <?php if($backend_settings == 1):?>
     <div id="chat-circle" class="btn btn-raised">
         <div id="chat-overlay"></div>
         <i class="material-icons"><?php _e("▶Snap","acb");?></i>
     </div>
-    <?php if($backend_settings == 1):?>
+
     <div class="chat-box" id="sam">
         <div class="chat-box-header" id="cbox-header"
             style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">

@@ -15,12 +15,13 @@ class ACB_MessageCreation {
          */
         $this->ACB_message_truncate();
         $this->ACB_message_creation();
-       
     }
     public function ACB_message_truncate() {
         if (sanitize_text_field($_POST['action']) == 'acb_data_truncate') {
             $acb_frontend = $_POST['acb_frontend'];
             $acb_backend = $_POST['acb_backend'];
+            $acb_position = $_POST['acb_position'];
+            $acb_customization = $_POST['acb_customization'];
             $bg_color_value = $_POST['bg_color_value'];
             $left_pos_value = $_POST['left_pos_value'];
             $right_pos_value = $_POST['right_pos_value'];
@@ -28,6 +29,8 @@ class ACB_MessageCreation {
             $settings_page = array(
                 'acb_frontend_settings'=>$acb_frontend,
                 'acb_backend_settings'=>$acb_backend,
+                'acb_position_settings'=>$acb_position,
+                'acb_customization_settings'=>$acb_customization,
                 'acb_bg_color_value_settings'=>$bg_color_value,
                 'acb_left_pos_value_settings'=>$left_pos_value,
                 'acb_right_pos_value_settings'=>$right_pos_value,

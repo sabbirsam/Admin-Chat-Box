@@ -13,6 +13,8 @@ final class ACB_DbTables {
         $acb_default_options=array(
             'acb_frontend_settings'=>"0",
             'acb_backend_settings'=>"1",
+            'acb_position_settings'=>"0",
+            'acb_customization_settings'=>"0",
             'acb_bg_color_value_settings'=>"1",
             'acb_left_pos_value_settings'=>"0",
             'acb_right_pos_value_settings'=>"#5A5EB9",

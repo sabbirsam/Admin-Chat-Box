@@ -19,8 +19,6 @@ class ACB_Enqueue extends ACB_BaseController{
          * Global all screen loaded file
          */
         if("toplevel_page_admin_chat_box" == $screen ){
-
-            // wp_enqueue_script( 'acb_chat_js', $this->plugin_url .'assets/admin/js/chat.js',array('jquery'),1.0,true );
             wp_enqueue_script( 'acb_bootstrap_min_js', $this->plugin_url .'assets/library/bootstrap.min.js',array('jquery'),1.0,true );
             wp_enqueue_script( 'acb_seeetalert_min_js', $this->plugin_url .'assets/library/sweetalert2@11.js',array('jquery'),1.0,true );
 
