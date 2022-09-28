@@ -10,7 +10,8 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 class ACB_FrontChat extends ACB_BaseController{
     function __construct(){
         add_action( 'wp_enqueue_scripts', array( $this, 'ACB_public_enqueue' ) ); 
-        add_action("wp_head", array($this, 'add_chatbox_front_widget'));
+        add_action("wp_footer", array($this, 'add_chatbox_front_widget'));
+       
     }
     
     public function ACB_public_enqueue(){
