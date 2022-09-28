@@ -200,8 +200,6 @@
                 }
             });
         });
-
-
         /**
          * Chat open and close
          */
