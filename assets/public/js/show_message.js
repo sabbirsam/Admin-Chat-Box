@@ -25,7 +25,7 @@
      /**
      * Show the chat box open
      */
-           window.onload = function() {
+        window.onload = function() {
             document.getElementById("sam").style.display = 'block';
         };
 

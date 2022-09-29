@@ -118,10 +118,6 @@
                 $('.color-picker').toggle();
             }
              
-
-
-    
-
             /**
              * Pos btn color set
              */

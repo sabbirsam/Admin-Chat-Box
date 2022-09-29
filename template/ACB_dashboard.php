@@ -1,33 +1,26 @@
 <?php 
 if ( is_user_logged_in() ) {
-    
     $user = wp_get_current_user();
     $email = $user->user_email;
     $name = $user->display_name;
     $get_settings = get_option( 'acb_settings_value');
     $settings_update = json_decode($get_settings);
-    
     $front_end = $settings_update->acb_frontend_settings;
     // echo $front_end;
     $backend_settings = $settings_update->acb_backend_settings;
-    
     $pos_value_settings = $settings_update->acb_position_settings;
     //  echo $pos_value_settings;
     $customization_value_settings = $settings_update->acb_customization_settings;
     //  echo $customization_value_settings;
 
-
     $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
     $left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
     $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
-   
-    
     if(isset($_POST['msg'])){
         $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
         $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
         $date = date('Y-m-d H:i:s');
         $time = date('g:i a');
-   
         if ($msg) {
             $permission = check_ajax_referer('acb_msg_post_nonce', 'nonce', false);
             global $wpdb;
@@ -70,7 +63,6 @@ if ( is_user_logged_in() ) {
             <span class="slider round"></span>
         </label>
         <!-- button position  -->
-
         <div class="left-right-btn" id="left-right-btn-id">
             <span class="c-button c-button--arrow-left" id="arrow-left"
                 value="<?php echo isset( $left_pos_value_settings ) ?  $left_pos_value_settings :'0'; ?>"
@@ -92,10 +84,8 @@ if ( is_user_logged_in() ) {
             <input type="checkbox" id="acb_customization"
                 <?php if($customization_value_settings == 1){echo "checked";}?>
                 value="<?php echo isset( $customization_value_settings ) ?  $customization_value_settings :'1'; ?>">
-
             <span class="slider round"></span>
         </label>
-
         <div class="left-right-btn" id="left-right-btn-id">
             <span class="color-picker">
                 <label for="acb_colorPicker">Choose Header color:
@@ -104,13 +94,9 @@ if ( is_user_logged_in() ) {
                         id="acb_colorPicker" style="display:none">
                 </label>
             </span>
-
         </div>
-
-
         <br>
         <br>
-
         <label class="switch" for="acb_save_settings">
             <span class="toggle-label">Save:</span>
             <input type="checkbox" id="acb_save_settings">

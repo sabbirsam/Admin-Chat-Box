@@ -33,6 +33,19 @@ class ACB_FrontChat extends ACB_BaseController{
         
         wp_enqueue_style( 'acb_pub_main_css_style', $plugin_url . '../assets/public/css/acb_styleSheet.css' );     
         wp_enqueue_style( 'acb_pub_chat_style',  $plugin_url . '../assets/public/css/chat.css' );  
+
+
+        /**
+         * Settings
+         */
+        // wp_enqueue_script( 'acb_front_chat_js', $plugin_url .'../assets/public/js/f_settings.js',array('jquery'),1.0,true );
+        
+        // wp_enqueue_script( 'acb_front_chat_js',  $plugin_url .'../assets/public/js/f_settings.js',array('jquery'),1.0,true ); 
+        // wp_localize_script( 'acb_front_chat_js', 'acb_data_truncate', array(
+        //     'ajaxurl'=>admin_url("admin-ajax.php", null)
+        //     ) );
+        // wp_enqueue_script('jquery');
+        // wp_enqueue_script('acb_front_chat_js');
        
     }
 

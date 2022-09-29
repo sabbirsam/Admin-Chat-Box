@@ -4,16 +4,21 @@ $email = $user->user_email;
 $name = $user->display_name;                           
 $get_settings = get_option( 'acb_settings_value');
 $settings_update = json_decode($get_settings);
-
 $front_end = $settings_update->acb_frontend_settings;
 $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
-
+$left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
+$right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+if($left_pos_value_settings == 1){
+    $value = 'left:15px';
+}
+if($right_pos_value_settings == 1){
+    $value = 'right:10px';
+}
 if(isset($_POST['msg'])){
     $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
     $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
     $date = date('Y-m-d H:i:s');
     $time = date('g:i a');
-
     if ($msg) {
         $permission = check_ajax_referer('acb_msg_post_nonce', 'nonce', false);
         global $wpdb;
@@ -26,12 +31,10 @@ if(isset($_POST['msg'])){
 }
 if($front_end == 1):
 ?>
-<div id="chat-circle" class="btn btn-raised">
-    <div id="chat-overlay"></div>
-    <i class="material-icons"><?php _e("▶Snap","acb");?></i>
+<div id="chat-circle" class="btn btn-raised" style="<?php echo isset( $value ) ?  $value :'right:15px'; ?>">
+    <div id=" chat-overlay"></div>
 </div>
-
-<div class="chat-box" id="sam">
+<div class="chat-box" id="sam" style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
     <div class="chat-box-header" id="cbox-header"
         style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
         <span class="chat-box-toggles"><i
@@ -53,7 +56,6 @@ if($front_end == 1):
                     style="height:50px;" size="60" />
                 <input type="submit" value="▶" class="commandButton chat-submit" style="height:54px;" />
         </form>
-
 </div>
 <script>
 if (window.history.replaceState) {
