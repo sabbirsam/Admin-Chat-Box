@@ -228,3 +228,39 @@ span.color-picker {
     font-size: 15px;
     margin-left: 7px;
 }
+
+
+@keyframes example-jump {
+    0% {
+        transform: scaleX(1.25) scaleY(0.75) translate(0px, 0px);
+    }
+    30% {
+        transform: scaleX(0.75) scaleY(1.25) translate(0px, -10px);
+        -webkit-transform: scaleX(0.75) scaleY(1.25) translate(0px, -10px);
+        -moz-transform: scaleX(0.75) scaleY(1.25) translate(0px, -10px);
+        -ms-transform: scaleX(0.75) scaleY(1.25) translate(0px, -10px);
+        -o-transform: scaleX(0.75) scaleY(1.25) translate(0px, -10px);
+    }
+    50% {
+        transform: scaleX(0.9) scaleY(1.1) translate(0px, -20px);
+        -webkit-transform: scaleX(0.9) scaleY(1.1) translate(0px, -20px);
+        -moz-transform: scaleX(0.9) scaleY(1.1) translate(0px, -20px);
+        -ms-transform: scaleX(0.9) scaleY(1.1) translate(0px, -20px);
+        -o-transform: scaleX(0.9) scaleY(1.1) translate(0px, -20px);
+    }
+    70% {
+        transform: translate(0px, -20px);
+        -webkit-transform: translate(0px, -20px);
+        -moz-transform: translate(0px, -20px);
+        -ms-transform: translate(0px, -20px);
+        -o-transform: translate(0px, -20px);
+    }
+}
+
+#chat-circle {
+    fill: rgb(128, 255, 0);
+    animation-name: example-jump;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

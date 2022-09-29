@@ -8,12 +8,14 @@ $front_end = $settings_update->acb_frontend_settings;
 $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
 $left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
 $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+
 if($left_pos_value_settings == 1){
     $value = 'left:15px';
 }
 if($right_pos_value_settings == 1){
     $value = 'right:10px';
 }
+
 if(isset($_POST['msg'])){
     $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
     $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
@@ -29,9 +31,12 @@ if(isset($_POST['msg'])){
         $save = $wpdb->insert_id;
     }
 }
+if ( is_user_logged_in() ) {
+    
 if($front_end == 1):
 ?>
 <div id="chat-circle" class="btn btn-raised" style="<?php echo isset( $value ) ?  $value :'right:15px'; ?>">
+    <div class="ctext">Click</div>
     <div id=" chat-overlay"></div>
 </div>
 <div class="chat-box" id="sam" style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
@@ -64,3 +69,6 @@ if (window.history.replaceState) {
 </script>
 <?php 
 endif;
+
+
+}
