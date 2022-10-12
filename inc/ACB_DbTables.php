@@ -9,7 +9,9 @@ final class ACB_DbTables {
     private $connection;
     private $sql;
     public function __construct() {
-        
+        /**
+         * Default setting value
+         */
         $acb_default_options=array(
             'acb_frontend_settings'=>"0",
             'acb_backend_settings'=>"1",

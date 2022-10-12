@@ -1,21 +1,26 @@
 <?php 
 if ( is_user_logged_in() ) {
+    /**
+     * Get User name and email
+     */
     $user = wp_get_current_user();
-    $email = $user->user_email;
-    $name = $user->display_name;
+    $email = esc_attr($user->user_email);
+    $name = esc_attr($user->display_name);  
+    /**
+    * Get Option page value for the backend setting
+    **/  
     $get_settings = get_option( 'acb_settings_value');
     $settings_update = json_decode($get_settings);
-    $front_end = $settings_update->acb_frontend_settings;
-    // echo $front_end;
-    $backend_settings = $settings_update->acb_backend_settings;
-    $pos_value_settings = $settings_update->acb_position_settings;
-    //  echo $pos_value_settings;
-    $customization_value_settings = $settings_update->acb_customization_settings;
-    //  echo $customization_value_settings;
-
-    $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
-    $left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
-    $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+    $front_end = esc_attr($settings_update->acb_frontend_settings);
+    $backend_settings = esc_attr($settings_update->acb_backend_settings);
+    $pos_value_settings = esc_attr($settings_update->acb_position_settings);
+    $customization_value_settings = esc_attr($settings_update->acb_customization_settings);
+    $bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_settings);
+    $left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
+    $right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
+    /**
+     * Get all the chat information
+     */
     if(isset($_POST['msg'])){
         $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
         $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
@@ -34,12 +39,12 @@ if ( is_user_logged_in() ) {
     ?>
 <div style="align:center"><br />
     <span class="heading"><?php _e("Chat Box","acb");?></span><br />
-    <h2>Settings Page</h2>
+    <h2><?php _e("Settings Page","acb");?></h2>
     <!-- setting page  -->
     <!-- frontend page  -->
     <div>
         <label class="switch" for="acb_frontend">
-            <span class="toggle-label">Activate frontend widgets:</span>
+            <span class="toggle-label"><?php _e("Chat BoxActivate frontend widgets:","acb");?></span>
             <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo "checked";}?>
                 value="<?php echo isset( $front_end ) ?  $front_end :'0'; ?>">
             <span class="slider round"></span>
@@ -48,7 +53,7 @@ if ( is_user_logged_in() ) {
         <br>
         <!-- Backend page  -->
         <label class="switch" for="acb_backend">
-            <span class="toggle-label">Active Backend widgets:</span>
+            <span class="toggle-label"><?php _e("Active Backend widgets:","acb");?></span>
             <input type="checkbox" id="acb_backend" <?php if($backend_settings == 1){echo "checked";}?>
                 value="<?php echo isset( $backend_settings ) ?  $backend_settings :'1'; ?>">
             <span class="slider round"></span>
@@ -57,7 +62,7 @@ if ( is_user_logged_in() ) {
         <br>
         <!-- Position page  -->
         <label class="switch" for="acb_position">
-            <span class="toggle-label">Set position:</span>
+            <span class="toggle-label"><?php _e("Set position:","acb");?></span>
             <input type="checkbox" id="acb_position" <?php if($pos_value_settings == 1){echo "checked";}?>
                 value="<?php echo isset( $pos_value_settings ) ?  $pos_value_settings :'1'; ?>">
             <span class="slider round"></span>
@@ -67,12 +72,12 @@ if ( is_user_logged_in() ) {
             <span class="c-button c-button--arrow-left" id="arrow-left"
                 value="<?php echo isset( $left_pos_value_settings ) ?  $left_pos_value_settings :'0'; ?>"
                 style="display:none" tabindex="0">
-                <span class="c-button__text">left</span>
+                <span class="c-button__text"><?php _e("left","acb");?></span>
             </span>
             <span class="c-button c-button--arrow-right" id="arrow-right"
                 value="<?php echo isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1'; ?>"
                 style="display:none" tabindex="0">
-                <span class="c-button__text">right</span>
+                <span class="c-button__text"><?php _e("right","acb");?></span>
             </span>
         </div>
         <!-- button position end -->
@@ -80,7 +85,7 @@ if ( is_user_logged_in() ) {
         <br>
         <!-- Customization page  -->
         <label class="switch" for="acb_customization">
-            <span class="toggle-label">Customization:</span>
+            <span class="toggle-label"><?php _e("Customization:","acb");?></span>
             <input type="checkbox" id="acb_customization"
                 <?php if($customization_value_settings == 1){echo "checked";}?>
                 value="<?php echo isset( $customization_value_settings ) ?  $customization_value_settings :'1'; ?>">
@@ -88,7 +93,7 @@ if ( is_user_logged_in() ) {
         </label>
         <div class="left-right-btn" id="left-right-btn-id">
             <span class="color-picker">
-                <label for="acb_colorPicker">Choose Header color:
+                <label for="acb_colorPicker"><?php _e("Choose Header color:","acb");?>
                     <input type="color"
                         value="<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>"
                         id="acb_colorPicker" style="display:none">
@@ -98,7 +103,7 @@ if ( is_user_logged_in() ) {
         <br>
         <br>
         <label class="switch" for="acb_save_settings">
-            <span class="toggle-label">Save:</span>
+            <span class="toggle-label"><?php _e("Save:","acb");?></span>
             <input type="checkbox" id="acb_save_settings">
             <span class="slider"></span>
         </label>
@@ -146,39 +151,13 @@ if ( is_user_logged_in() ) {
 }
 else {
 ?>
-<div style="align:center"><br />
-    <span class="heading"><?php _e("Sorry need to login on the admin account","acb")?></span><br />
-    <br /><br />
-    <br />
-    <form method="post" action="">
-        <table class="table" cellpadding="4" cellspacing="4">
-            <tr>
-                <td style="align:center" colspan="2" class="tableHead"><?php _e("User Login","acb")?></td>
-            </tr>
-            <tr>
-                <td style="align:center" class="info" colspan="2"></td>
-            </tr>
-            <tr>
-                <td class="labels"><?php _e("Email ID : ","acb")?></td>
-                <td><input type="email" name="email" class="fields" size="30" required="required"
-                        placeholder="Enter Email ID" /></td>
-            </tr>
-            <tr>
-                <td class="labels"><?php _e("Password : ","acb")?></td>
-                <td><input type="password" name="password" class="fields" size="30" required="required"
-                        placeholder="Enter Password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" style="align:center"><input type="submit" value="Login" class="commandButton" /></td>
-            </tr>
-        </table>
-    </form>
-    <script>
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-    </script>
+<span class="heading"><?php _e("Sorry need to login on the admin account","acb")?></span><br />
+<script>
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+</script>
 
-    <?php
+<?php
 }
 ?>

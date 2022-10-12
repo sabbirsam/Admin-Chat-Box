@@ -29,16 +29,14 @@ class ACB_AjaxHandler {
     /**Chat data truncate */
        function ACB_message_truncate() {
         $ACB_message_truncate = new ACB_MessageCreation();
-        $ACB_message_truncate->ACB_message_truncate();
-        
+        $ACB_message_truncate->ACB_message_truncate(); 
     }
 
 
     /**Chat data fetch */
     function ACB_message_creation() {
         $ACB_message_creation = new ACB_MessageCreation();
-        $ACB_message_creation->ACB_message_creation();
-        
+        $ACB_message_creation->ACB_message_creation();  
     }
 
   

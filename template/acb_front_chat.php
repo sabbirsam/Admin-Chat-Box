@@ -1,14 +1,23 @@
 <?php
+/**
+ * Get User name and email
+ */
 $user = wp_get_current_user();
-$email = $user->user_email;
-$name = $user->display_name;                           
+$email = esc_attr($user->user_email);
+$name = esc_attr($user->display_name);   
+/**
+ * Get Option page value for the backend setting
+ **/                        
 $get_settings = get_option( 'acb_settings_value');
 $settings_update = json_decode($get_settings);
-$front_end = $settings_update->acb_frontend_settings;
-$bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
-$left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
-$right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+$front_end = esc_attr($settings_update->acb_frontend_settings);
+$bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_settings);
+$left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
+$right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
 
+/**
+ * Condition to check the position
+ */
 if($left_pos_value_settings == 1){
     $value = 'left:15px';
 }
@@ -16,6 +25,9 @@ if($right_pos_value_settings == 1){
     $value = 'right:10px';
 }
 
+/**
+ * Get all the chat information
+ */
 if(isset($_POST['msg'])){
     $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
     $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
@@ -36,14 +48,14 @@ if ( is_user_logged_in() ) {
 if($front_end == 1):
 ?>
 <div id="chat-circle" class="btn btn-raised" style="<?php echo isset( $value ) ?  $value :'right:15px'; ?>">
-    <div class="ctext">Click</div>
+    <div class="ctext"><?php _e("Click","acb");?></div>
     <div id=" chat-overlay"></div>
 </div>
 <div class="chat-box" id="sam" style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
     <div class="chat-box-header" id="cbox-header"
         style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
         <span class="chat-box-toggles"><i
-                class="material-icons"><?php echo esc_html("Welcome ".$user->display_name);?></i></span>
+                class="material-icons"><?php echo esc_attr("Welcome ".$user->display_name);?></i></span>
         <span class="chat-box-toggle"><?php _e("X","acb");?></span>
     </div>
     <div class="chat-box-body" id="vegan">
@@ -69,6 +81,4 @@ if (window.history.replaceState) {
 </script>
 <?php 
 endif;
-
-
 }

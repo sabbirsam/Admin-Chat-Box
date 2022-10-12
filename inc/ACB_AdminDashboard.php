@@ -11,14 +11,14 @@ class ACB_AdminDashboard{
         add_action("admin_menu", array($this, 'add_chatbox_pages'));
     }
     public function add_chatbox_pages(){
-        // $icon = plugin_dir_url( __FILE__ ) . './assets/img/chat.png';
+        $icon = plugins_url( 'admin-chat-box/assets/img/chat.png');
         add_menu_page( 
             __( 'Admin-Chat-Box', 'acb' ),
             'Admin-Chat-Box',
             'read',
             'admin_chat_box',
             array($this, 'ACB_chat_pages'),
-            'dashicons-welcome-widgets-menus',
+            $icon,
             3 );  
     }
   

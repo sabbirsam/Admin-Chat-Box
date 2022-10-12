@@ -27,7 +27,9 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
     require_once dirname(__FILE__).'/vendor/autoload.php';
 }
-
+/**
+ * All Namespace 
+ */
 use ACB\Inc\ACB_Enqueue;
 use ACB\Inc\ACB_DbTables;
 use ACB\Inc\ACB_Activate;
@@ -37,7 +39,9 @@ use ACB\Inc\ACB_AjaxHandler;
 use ACB\Inc\ACB_BaseController;
 use ACB\Inc\ACB_AdminDashboard;
 
-
+/**
+ * Main Class
+ */
 if(!class_exists('ACB_AdminChatBox')){
     class ACB_AdminChatBox{
         public $admin_chat_box;
@@ -45,9 +49,15 @@ if(!class_exists('ACB_AdminChatBox')){
             $this->includes();
             $this->admin_chat_box = plugin_basename(__FILE__); 
         }
+        /**
+         * Register
+         */
         function register(){
             add_action("plugins_loaded", array( $this, 'acb_load' )); 
         }
+        /**
+         * Language load
+         */
         function acb_load(){
             load_plugin_textdomain('acb', false,dirname(__FILE__)."languages");
         }
@@ -64,13 +74,22 @@ if(!class_exists('ACB_AdminChatBox')){
             new ACB_BaseController();
 
         }
+        /**
+         * Activation Hook
+         */
         function acb_activate(){   
             ACB_Activate::acb_activate();
         }
+        /**
+         * Deactivation Hook
+         */
         function acb_deactivate(){ 
             ACB_Deactivate::acb_deactivate(); 
         }
     }
+    /**
+     * Instantiate an Object Class 
+     */
     $acb = new ACB_AdminChatBox;
     $acb ->register();
     register_activation_hook (__FILE__, array( $acb, 'acb_activate' ) );
