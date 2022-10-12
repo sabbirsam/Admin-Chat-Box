@@ -8,7 +8,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Admin Chat Box
- * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box
+ * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box/tree/free
  * Description: 
  * Version:           1.0.0
  * Requires at least: 5.9 or higher
