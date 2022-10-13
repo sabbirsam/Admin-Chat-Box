@@ -50,7 +50,7 @@ if ( is_user_logged_in() ) {
     <h2><?php _e("Settings Page","acb");?></h2>
     <!-- setting page  -->
     <!-- frontend page  -->
-    <div>
+    <div class="card">
         <label class="switch" for="acb_frontend">
             <span class="toggle-label"><?php _e("Chat BoxActivate frontend widgets:","acb");?></span>
             <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo "checked";}?>
@@ -110,10 +110,14 @@ if ( is_user_logged_in() ) {
         </div>
         <br>
         <br>
-        <label class="switch" for="acb_save_settings">
-            <span class="toggle-label"><?php _e("Save:","acb");?></span>
+        <br>
+        <br>
+        <label class="switch setting" for="acb_save_settings">
+            <!-- <span class="toggle-label"><?php _e("Save:","acb");?></span>
             <input type="checkbox" id="acb_save_settings">
-            <span class="slider"></span>
+            <span class="slider"></span> -->
+            <span class="toggle-label"><?php _e("Save setting:","acb");?></span>
+            <button id="acb_save_settings">SAVE</button>
         </label>
 
     </div>
