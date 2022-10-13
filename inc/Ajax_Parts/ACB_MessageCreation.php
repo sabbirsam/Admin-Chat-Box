@@ -40,7 +40,6 @@ class ACB_MessageCreation {
                 die();
             }
         }
-
     }
 
     /**
@@ -54,24 +53,24 @@ class ACB_MessageCreation {
             $table=$wpdb->prefix. 'acb_admin_chat_box';
             $fetch= $wpdb->get_results("SELECT * FROM  $table ORDER BY id DESC" ); 
             
-            foreach ($fetch as $row) {
+            foreach ($fetch as $test){
+                $all_data = $test->data;
+                $manage = json_decode($all_data);
                 ?>
-<span class="nick" style="color: black"><?php echo esc_html($row->sender); ?></span>: <span
-    class="msg"><?php echo esc_html($row->msg); ?>
+<span class="nick" style="color: black"><?php echo esc_html($manage->acb_user_name); ?></span>: <span
+    class="msg"><?php echo esc_html($manage->acb_user_msg); ?>
     <br>
     <span style="font-size:10px;color:#5a3c04;">
-        <br>
-
-        <?php echo date("M d, Y > h:i A", strtotime(esc_html($row->date))); ?>
+        <?php echo date("M d, Y > h:i A", strtotime(esc_html($manage->acb_msg_date))); ?>
         <br>
     </span>
 </span>
 <br />
 <?php
                     
-                }
-            } 
-        die();     
-    }
+     }
+    } 
+  die();     
+ }
                 
 }

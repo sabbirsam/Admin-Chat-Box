@@ -8,8 +8,8 @@
  *
  * @wordpress-plugin
  * Plugin Name: Admin Chat Box
- * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box
- * Description: 
+ * Plugin URI: https://github.com/sabbirsam/Admin-Chat-Box/tree/free
+ * Description: Admin chat box is mainly used to easily chat via own local store which is connected local/server database without using any third party application/API, Its quick conversation plugin between customer/vendor and admin.
  * Version:           1.0.0
  * Requires at least: 5.9 or higher
  * Requires PHP:      5.4 or higher

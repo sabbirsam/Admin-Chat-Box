@@ -51,16 +51,19 @@ div#vegan {
 
 .fields,
 input[type=submit] {
-    font-family: "Segoe UI";
-    color: rgb(14, 1, 1);
-    font-size: 14px;
-    border: 1px solid rgb(1, 1, 22);
-    border-radius: 7px;
-    background-color: transparent;
-    padding: 10px 10px;
-    cursor: pointer;
-    transition: 0.5s;
-    font-weight: bold;
+    font-family: "Segoe UI" !important;
+    color: rgb(14, 1, 1) !important;
+    font-size: 14px !important;
+    border: 1px solid rgb(1, 1, 22)!important;
+    border-radius: 7px!important;
+    background-color: transparent!important;
+    padding: 10px 10px!important;
+    cursor: pointer!important;
+    transition: 0.5s!important;
+    font-weight: bold!important;
+}
+input.commandButton.chat-submit{
+    height: 47px !important;
 }
 
 .fields:hover,

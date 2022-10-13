@@ -25,13 +25,21 @@ if ( is_user_logged_in() ) {
         $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
         $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
         $date = date('Y-m-d H:i:s');
-        $time = date('g:i a');
+
+        $raw_input_data = array(
+            'acb_user_email'=>$email,
+            'acb_user_name'=>$name,
+            'acb_user_msg'=>$msg,
+            'acb_msg_date'=>$date,
+        );
+        $input_data = json_encode( $raw_input_data);
+
         if ($msg) {
             $permission = check_ajax_referer('acb_msg_post_nonce', 'nonce', false);
             global $wpdb;
             $table=$wpdb->prefix. 'acb_admin_chat_box';
-            $data = array('email' => $email, 'sender' => $name, 'msg' => $msg,'time' => $time,'date' => $date);
-            $format = array('%s','%s','%s','%s','%s');
+            $data = array('data' => $input_data);
+            $format = array('%s');
             $wpdb->insert($table,$data,$format);
             $save = $wpdb->insert_id;
         }
@@ -137,7 +145,6 @@ if ( is_user_logged_in() ) {
         <form method="post" action="" id="acb_Form">
             <form method="post" action="" id="acb_Form">
                 <div class="chat-input">
-                    <!-- <input type="text" id="chat-input" placeholder="Send a message..."/> -->
                     <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
                         data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
                         style="height:50px;" size="60" />

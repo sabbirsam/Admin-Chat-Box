@@ -30,15 +30,23 @@ if($right_pos_value_settings == 1){
  */
 if(isset($_POST['msg'])){
     $acb_sanitiz_msg = sanitize_text_field ($_POST['msg']);
-    $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
-    $date = date('Y-m-d H:i:s');
-    $time = date('g:i a');
+        $msg =isset( $acb_sanitiz_msg ) ?  $acb_sanitiz_msg :''; 
+        $date = date('Y-m-d H:i:s');
+
+        $raw_input_data = array(
+            'acb_user_email'=>$email,
+            'acb_user_name'=>$name,
+            'acb_user_msg'=>$msg,
+            'acb_msg_date'=>$date,
+        );
+        $input_data = json_encode( $raw_input_data);
+
     if ($msg) {
         $permission = check_ajax_referer('acb_msg_post_nonce', 'nonce', false);
         global $wpdb;
         $table=$wpdb->prefix. 'acb_admin_chat_box';
-        $data = array('email' => $email, 'sender' => $name, 'msg' => $msg,'time' => $time,'date' => $date);
-        $format = array('%s','%s','%s','%s','%s');
+        $data = array('data' => $input_data);
+        $format = array('%s');
         $wpdb->insert($table,$data,$format);
         $save = $wpdb->insert_id;
     }

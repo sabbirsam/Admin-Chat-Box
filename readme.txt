@@ -20,7 +20,7 @@ It is very easy to setup and it is ready to use as soon as the plugin is install
 3.**Customization**-Custom color can be used in the chat box Header very easily and totally free 
 
 
-👁️ [View Tutorial](https://youtu.be/fyfENNC0sbo) | | 👩🏼‍💻 [Get Support](https://wordpress.org/support/plugin/simple-form/)
+👁️ [View Tutorial](https://youtu.be/fyfENNC0sbo) | | 👩🏼‍💻 [Get Support](https://wordpress.org/support/plugin/admin-chat-box/)
 
 == Installation ==
 
