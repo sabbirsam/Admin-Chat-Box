@@ -143,10 +143,9 @@
           /**
          * Settings Customization 
          */
-
-
         let userColor= document.querySelector("#acb_colorPicker");
         userColor.addEventListener("change",(e) => {
+            $("#chat-circle").css({"background": userColor.value});
             $("#cbox-header").css({"background": userColor.value});
         });
 

@@ -74,7 +74,7 @@
     /* height: auto; */
     margin: 14px;
     /* border: 1px solid #ccc; */
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .chat-box-body:after {

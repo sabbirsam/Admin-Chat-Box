@@ -123,7 +123,9 @@ if ( is_user_logged_in() ) {
     <br /><br />
     <br />
     <?php if($backend_settings == 1):?>
-    <div id="chat-circle" class="btn btn-raised">
+    <div id="chat-circle" class="btn btn-raised"
+        style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
+
         <div id="chat-overlay"></div>
         <i class="material-icons"><?php _e("▶Snap","acb");?></i>
     </div>

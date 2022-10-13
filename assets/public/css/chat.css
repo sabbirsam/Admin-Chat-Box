@@ -17,13 +17,9 @@ i.fa {
     display: inline-block;
     border-radius: 60px;
     box-shadow: 0 0 1px #5A5EB9;
-    padding: 0.5em 0.6em;
+    padding: 7px;
   }
 /* end  */
-
-/* .ctext {
-    font-size: 14px;
-} */
 
 .btn#my-btn {
     background: white;
@@ -265,7 +261,7 @@ span.color-picker {
 }
 
 #chat-circle {
-    fill: rgb(128, 255, 0);
+    /* fill: rgb(128, 255, 0); */
     animation-name: example-jump;
     animation-duration: 1s;
     animation-iteration-count: infinite;

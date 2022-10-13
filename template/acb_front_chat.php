@@ -19,10 +19,10 @@ $right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_setti
  * Condition to check the position
  */
 if($left_pos_value_settings == 1){
-    $value = 'left:15px';
+    $value = 'left:15px;';
 }
 if($right_pos_value_settings == 1){
-    $value = 'right:10px';
+    $value = 'right:10px;';
 }
 
 /**
@@ -55,7 +55,8 @@ if ( is_user_logged_in() ) {
     
 if($front_end == 1):
 ?>
-<div id="chat-circle" class="btn btn-raised" style="<?php echo isset( $value ) ?  $value :'right:15px'; ?>">
+<div id="chat-circle" class="btn btn-raised"
+    style="<?php echo isset( $value ) ?  $value :'right:15px'; ?> background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <i class="fa fa-comments"></i>
     <div id="chat-overlay"></div>
