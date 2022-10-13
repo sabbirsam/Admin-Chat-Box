@@ -39,15 +39,17 @@
     display: none;
     background: #efefef;
     position: fixed;
-    /* right: 179px; */
     right: 55px;
     bottom: 50px;
     width: 350px;
     max-width: 85vw;
     max-height: 100vh;
     border-radius: 5px;
-    /*   box-shadow: 0px 5px 35px 9px #464a92; */
     box-shadow: 0px 5px 35px 9px #ccc;
+    /*
+    top: 138px; 
+    max-width: 18vw;
+    max-height: 58vh; */
 }
 
 .chat-box-toggle {

@@ -23,6 +23,7 @@ final class ACB_DbTables {
         );
 
         add_option( 'acb_settings_value', json_encode($acb_default_options) );
+        add_option( 'acb_scale_settings_value', 'inactive' );
         
         global $wpdb;
         $wpdb->hide_errors();

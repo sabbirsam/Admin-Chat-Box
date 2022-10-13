@@ -18,6 +18,7 @@ if ( is_user_logged_in() ) {
     $bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_settings);
     $left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
     $right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
+
     /**
      * Get all the chat information
      */
@@ -38,7 +39,7 @@ if ( is_user_logged_in() ) {
             $permission = check_ajax_referer('acb_msg_post_nonce', 'nonce', false);
             global $wpdb;
             $table=$wpdb->prefix. 'acb_admin_chat_box';
-            $data = array('data' => $input_data);
+            $data = array('data' => $input_data);   
             $format = array('%s');
             $wpdb->insert($table,$data,$format);
             $save = $wpdb->insert_id;

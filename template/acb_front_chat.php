@@ -15,6 +15,11 @@ $bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_setting
 $left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
 $right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
 
+$get_scale_settings = get_option( 'acb_scale_settings_value');
+
+// $scale_settings_update = json_decode($get_scale_settings);
+// print_r($scale_settings_update);
+
 /**
  * Condition to check the position
  */
@@ -61,7 +66,8 @@ if($front_end == 1):
     <i class="fa fa-comments"></i>
     <div id="chat-overlay"></div>
 </div>
-<div class="chat-box" id="sam" style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
+<div class="chat-box" id="sam" value=<?php echo isset( $get_scale_settings ) ?  $get_scale_settings :'inactive'; ?>
+    style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
     <div class="chat-box-header" id="cbox-header"
         style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
         <span class="chat-box-toggles"><i
