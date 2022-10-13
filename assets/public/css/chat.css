@@ -7,12 +7,23 @@
     height: 30px;
     border-radius: 50%;
     color: white;
-    padding: 28px;
+    padding: 15px;
     cursor: pointer;
   }
-.ctext {
+/**
+Icon 
+*/
+i.fa {
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0 0 1px #5A5EB9;
+    padding: 0.5em 0.6em;
+  }
+/* end  */
+
+/* .ctext {
     font-size: 14px;
-}
+} */
 
 .btn#my-btn {
     background: white;
@@ -71,6 +82,7 @@
     margin: 14px;
     overflow-y: scroll; 
 }
+
 
 .chat-box-body:after {
     content: "";

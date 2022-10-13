@@ -56,8 +56,9 @@ if ( is_user_logged_in() ) {
 if($front_end == 1):
 ?>
 <div id="chat-circle" class="btn btn-raised" style="<?php echo isset( $value ) ?  $value :'right:15px'; ?>">
-    <div class="ctext"><?php _e("Chat","acb");?></div>
-    <div id=" chat-overlay"></div>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <i class="fa fa-comments"></i>
+    <div id="chat-overlay"></div>
 </div>
 <div class="chat-box" id="sam" style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
     <div class="chat-box-header" id="cbox-header"

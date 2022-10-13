@@ -20,7 +20,7 @@ class ACB_FrontChat extends ACB_BaseController{
          * 
          */
         $plugin_url = plugin_dir_url( __FILE__ );
-       
+        
         wp_enqueue_script( 'acb_pub_bootstrap_min_js', $plugin_url .'../assets/library/bootstrap.min.js',array('jquery'),1.0,true );
         wp_enqueue_script( 'acb_pub_seeetalert_min_js', $plugin_url .'../assets/library/sweetalert2@11.js',array('jquery'),1.0,true );
         
@@ -31,6 +31,7 @@ class ACB_FrontChat extends ACB_BaseController{
         wp_enqueue_script('jquery');
         wp_enqueue_script('acb_public_js'); 
         
+        // wp_enqueue_style( 'acb__pub_fontawesome_min_css', $plugin_url .'../assets/library/font-awesome.min.css');
         wp_enqueue_style( 'acb_pub_main_css_style', $plugin_url . '../assets/public/css/acb_styleSheet.css' );     
         wp_enqueue_style( 'acb_pub_chat_style',  $plugin_url . '../assets/public/css/chat.css' );  
        
