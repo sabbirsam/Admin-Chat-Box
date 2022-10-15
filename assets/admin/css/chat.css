@@ -39,17 +39,15 @@
     display: none;
     background: #efefef;
     position: fixed;
-    right: 55px;
+    /* right: 179px; */
+    right: 42px;
     bottom: 50px;
-    width: 350px;
+    /* width: 350px; */
+    width: 304px;
     max-width: 85vw;
     max-height: 100vh;
     border-radius: 5px;
-    box-shadow: 0px 5px 35px 9px #ccc;
-    /*
-    top: 138px; 
-    max-width: 18vw;
-    max-height: 58vh; */
+    border: 1px solid #dedede;
 }
 
 .chat-box-toggle {
@@ -61,23 +59,25 @@
 
 .chat-box-header {
     background: #5A5EB9;
-    height: 70px;
+    /* height: 70px; */
+    height: 45px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
     text-align: center;
     font-size: 20px;
-    padding-top: 17px;
+    /* padding-top: 17px; */
+    padding-top: 16px;
 }
 
 .chat-box-body {
     position: relative;
-    height: 370px;
-    /* height: auto; */
+    /* height: 370px; */
+    height: 296px;
     margin: 14px;
-    /* border: 1px solid #ccc; */
-    overflow-y: scroll;
+    overflow-y: scroll; 
 }
+
 
 .chat-box-body:after {
     content: "";

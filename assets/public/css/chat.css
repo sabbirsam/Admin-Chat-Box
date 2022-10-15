@@ -3,8 +3,8 @@
     bottom: 50px;
     right: 50px;
     background: #5A5EB9;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     color: white;
     padding: 15px;
@@ -48,7 +48,8 @@ i.fa {
     position: fixed;
     right: 179px;
     bottom: 50px;
-    width: 350px;
+    /* width: 350px; */
+    width: 304px;
     max-width: 85vw;
     max-height: 100vh;
     border-radius: 5px;
@@ -63,18 +64,21 @@ i.fa {
 
 .chat-box-header {
     background: #5A5EB9;
-    height: 70px;
+    /* height: 70px; */
+    height: 45px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
     text-align: center;
     font-size: 20px;
-    padding-top: 17px;
+    /* padding-top: 17px; */
+    padding-top: 10px;
 }
 
 .chat-box-body {
     position: relative;
-    height: 370px;
+    /* height: 370px; */
+    height: 296px;
     margin: 14px;
     overflow-y: scroll; 
 }
@@ -95,7 +99,8 @@ i.fa {
 
 #msg {
     background: #f4f7f9!important;
-    width: 81%!important;
+    /* width: 81%!important; */
+    width: 75%!important;
     position: relative!important;
     height: 28px !important;
     padding-top: 10px!important;

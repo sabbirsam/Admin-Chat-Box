@@ -19,14 +19,31 @@ class ACB_MessageCreation {
     }
     public function ACB_message_truncate() {
         if (sanitize_text_field($_POST['action']) == 'acb_data_truncate') {
-            $acb_frontend = $_POST['acb_frontend'];
-            $acb_backend = $_POST['acb_backend'];
-            $acb_position = $_POST['acb_position'];
-            $acb_customization = $_POST['acb_customization'];
-            $bg_color_value = $_POST['bg_color_value'];
-            $left_pos_value = $_POST['left_pos_value'];
-            $right_pos_value = $_POST['right_pos_value'];
+             /**
+             * Sanitize all drag drop data
+             */
+            $ac_frontend = sanitize_text_field ($_POST['acb_frontend']);
+            $ac_backend = sanitize_text_field ($_POST['acb_backend']);
+            $ac_position = sanitize_text_field ($_POST['acb_position']);
+            $ac_customization = sanitize_text_field ($_POST['acb_customization']);
+            $ac_bg_color_value = sanitize_text_field ($_POST['bg_color_value']);
+            $ac_left_pos_value = sanitize_text_field ($_POST['left_pos_value']);
+            $right_pos_value = sanitize_text_field ($_POST['right_pos_value']);
 
+            /**
+             * 
+             */
+            $acb_frontend =  isset( $ac_frontend ) ? $ac_frontend :'';
+            $acb_backend =  isset( $ac_backend ) ? $ac_backend :'';
+            $acb_position =  isset( $ac_position ) ? $ac_position :'';
+            $acb_customization = isset( $ac_customization ) ? $ac_customization :'';
+            $bg_color_value =  isset( $ac_bg_color_value ) ? $ac_bg_color_value :'';
+            $left_pos_value =  isset( $ac_left_pos_value ) ? $ac_left_pos_value :'';
+            $right_pos_value =  isset( $right_pos_value ) ? $right_pos_value :'';
+
+            /**
+             * Array
+             */
             $settings_page = array(
                 'acb_frontend_settings'=>$acb_frontend,
                 'acb_backend_settings'=>$acb_backend,

@@ -10,15 +10,22 @@ $name = esc_attr($user->display_name);
  **/                        
 $get_settings = get_option( 'acb_settings_value');
 $settings_update = json_decode($get_settings);
-$front_end = esc_attr($settings_update->acb_frontend_settings);
-$bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_settings);
-$left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
-$right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
 
-$get_scale_settings = get_option( 'acb_scale_settings_value');
+$front_end = $settings_update->acb_frontend_settings;
+$update_front_end =isset( $front_end ) ?  $front_end :'0';
 
-// $scale_settings_update = json_decode($get_scale_settings);
-// print_r($scale_settings_update);
+$bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
+$update_bg_color_value_settings =isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9';
+
+$left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
+$update_left_pos_value_settings =isset( $left_pos_value_settings ) ?  $left_pos_value_settings :'0';
+
+$right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+$update_right_pos_value_settings =isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1';
+
+$set_get_scale_settings = get_option( 'acb_scale_settings_value');
+$get_scale_settings = substr($set_get_scale_settings, 1, -1);
+
 
 /**
  * Condition to check the position
@@ -26,9 +33,11 @@ $get_scale_settings = get_option( 'acb_scale_settings_value');
 if($left_pos_value_settings == 1){
     $value = 'left:15px;';
 }
+
 if($right_pos_value_settings == 1){
     $value = 'right:10px;';
 }
+$pos_value = isset( $value ) ?  $value :'right:15px';
 
 /**
  * Get all the chat information
@@ -61,15 +70,15 @@ if ( is_user_logged_in() ) {
 if($front_end == 1):
 ?>
 <div id="chat-circle" class="btn btn-raised"
-    style="<?php echo isset( $value ) ?  $value :'right:15px'; ?> background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
+    style="<?php echo esc_attr($pos_value, 'acb') ?>; background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <i class="fa fa-comments"></i>
     <div id="chat-overlay"></div>
 </div>
-<div class="chat-box" id="sam" value=<?php echo isset( $get_scale_settings ) ?  $get_scale_settings :'inactive'; ?>
-    style="<?php echo isset( $value ) ?  $value :'right:10px'; ?>">
+<div class="chat-box" id="sam" value=<?php echo esc_attr( $get_scale_settings,'acb' ) ?>
+    style="<?php echo esc_attr($pos_value, 'acb') ?>">
     <div class="chat-box-header" id="cbox-header"
-        style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
+        style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb') ?>">
         <span class="chat-box-toggles"><i
                 class="material-icons"><?php echo esc_attr("Welcome ".$user->display_name);?></i></span>
         <span class="chat-box-toggle"><?php _e("X","acb");?></span>

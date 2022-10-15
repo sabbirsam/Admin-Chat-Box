@@ -11,13 +11,31 @@ if ( is_user_logged_in() ) {
     **/  
     $get_settings = get_option( 'acb_settings_value');
     $settings_update = json_decode($get_settings);
-    $front_end = esc_attr($settings_update->acb_frontend_settings);
-    $backend_settings = esc_attr($settings_update->acb_backend_settings);
-    $pos_value_settings = esc_attr($settings_update->acb_position_settings);
-    $customization_value_settings = esc_attr($settings_update->acb_customization_settings);
-    $bg_color_value_settings = esc_attr($settings_update->acb_bg_color_value_settings);
-    $left_pos_value_settings = esc_attr($settings_update->acb_left_pos_value_settings);
-    $right_pos_value_settings = esc_attr($settings_update->acb_right_pos_value_settings);
+    /**
+     * Escappint
+     */
+    
+    // $front_end = esc_attr($settings_update->acb_frontend_settings);
+    $front_end = $settings_update->acb_frontend_settings;
+     $update_front_end =isset( $front_end ) ?  $front_end :'0';
+
+    $backend_settings =$settings_update->acb_backend_settings;
+     $update_backend_settings =isset( $backend_settings ) ?  $backend_settings :'1';
+
+    $pos_value_settings =$settings_update->acb_position_settings;
+     $update_pos_value_settings =isset( $pos_value_settings ) ?  $pos_value_settings :'1';
+
+    $customization_value_settings = $settings_update->acb_customization_settings;
+     $update_customization_value_settings =isset( $customization_value_settings ) ?  $customization_value_settings :'1';
+
+    $bg_color_value_settings = $settings_update->acb_bg_color_value_settings;
+     $update_bg_color_value_settings =isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9';
+
+    $left_pos_value_settings = $settings_update->acb_left_pos_value_settings;
+     $update_left_pos_value_settings =isset( $left_pos_value_settings ) ?  $left_pos_value_settings :'0';
+
+    $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
+     $update_right_pos_value_settings =isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1';
 
     /**
      * Get all the chat information
@@ -54,8 +72,8 @@ if ( is_user_logged_in() ) {
     <div class="card">
         <label class="switch" for="acb_frontend">
             <span class="toggle-label"><?php _e("Chat BoxActivate frontend widgets:","acb");?></span>
-            <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo "checked";}?>
-                value="<?php echo isset( $front_end ) ?  $front_end :'0'; ?>">
+            <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo _e("checked","acb");}?>
+                value="<?php echo esc_attr( $update_front_end,'acb' ) ?>">
             <span class="slider round"></span>
         </label>
         <br>
@@ -63,8 +81,8 @@ if ( is_user_logged_in() ) {
         <!-- Backend page  -->
         <label class="switch" for="acb_backend">
             <span class="toggle-label"><?php _e("Active Backend widgets:","acb");?></span>
-            <input type="checkbox" id="acb_backend" <?php if($backend_settings == 1){echo "checked";}?>
-                value="<?php echo isset( $backend_settings ) ?  $backend_settings :'1'; ?>">
+            <input type="checkbox" id="acb_backend" <?php if($backend_settings == 1){echo _e("checked","acb");}?>
+                value="<?php echo esc_attr( $update_backend_settings,'acb' ) ?>">
             <span class="slider round"></span>
         </label>
         <br>
@@ -72,20 +90,20 @@ if ( is_user_logged_in() ) {
         <!-- Position page  -->
         <label class="switch" for="acb_position">
             <span class="toggle-label"><?php _e("Set position:","acb");?></span>
-            <input type="checkbox" id="acb_position" <?php if($pos_value_settings == 1){echo "checked";}?>
-                value="<?php echo isset( $pos_value_settings ) ?  $pos_value_settings :'1'; ?>">
+            <input type="checkbox" id="acb_position" <?php if($pos_value_settings == 1){echo _e("checked","acb");}?>
+                value="<?php echo esc_attr( $update_pos_value_settings,'acb' )  ?>">
             <span class="slider round"></span>
         </label>
         <!-- button position  -->
         <div class="left-right-btn" id="left-right-btn-id">
             <span class="c-button c-button--arrow-left" id="arrow-left"
-                value="<?php echo isset( $left_pos_value_settings ) ?  $left_pos_value_settings :'0'; ?>"
-                style="display:none" tabindex="0">
+                value="<?php echo esc_attr( $update_left_pos_value_settings,'acb' ) ?>" style="display:none"
+                tabindex="0">
                 <span class="c-button__text"><?php _e("left","acb");?></span>
             </span>
             <span class="c-button c-button--arrow-right" id="arrow-right"
-                value="<?php echo isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1'; ?>"
-                style="display:none" tabindex="0">
+                value="<?php echo esc_attr( $update_right_pos_value_settings,'acb' ) ?>" style="display:none"
+                tabindex="0">
                 <span class="c-button__text"><?php _e("right","acb");?></span>
             </span>
         </div>
@@ -96,15 +114,14 @@ if ( is_user_logged_in() ) {
         <label class="switch" for="acb_customization">
             <span class="toggle-label"><?php _e("Customization:","acb");?></span>
             <input type="checkbox" id="acb_customization"
-                <?php if($customization_value_settings == 1){echo "checked";}?>
-                value="<?php echo isset( $customization_value_settings ) ?  $customization_value_settings :'1'; ?>">
+                <?php if($customization_value_settings == 1){echo _e("checked","acb");}?>
+                value="<?php echo esc_attr( $update_customization_value_settings,'acb' ) ?>">
             <span class="slider round"></span>
         </label>
         <div class="left-right-btn" id="left-right-btn-id">
             <span class="color-picker">
                 <label for="acb_colorPicker"><?php _e("Choose Header color:","acb");?>
-                    <input type="color"
-                        value="<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>"
+                    <input type="color" value="<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>"
                         id="acb_colorPicker" style="display:none">
                 </label>
             </span>
@@ -114,9 +131,6 @@ if ( is_user_logged_in() ) {
         <br>
         <br>
         <label class="switch setting" for="acb_save_settings">
-            <!-- <span class="toggle-label"><?php _e("Save:","acb");?></span>
-            <input type="checkbox" id="acb_save_settings">
-            <span class="slider"></span> -->
             <span class="toggle-label"><?php _e("Save setting:","acb");?></span>
             <button id="acb_save_settings">SAVE</button>
         </label>
@@ -129,7 +143,7 @@ if ( is_user_logged_in() ) {
     <br />
     <?php if($backend_settings == 1):?>
     <div id="chat-circle" class="btn btn-raised"
-        style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
+        style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
 
         <div id="chat-overlay"></div>
         <i class="material-icons"><?php _e("▶Snap","acb");?></i>
@@ -137,7 +151,7 @@ if ( is_user_logged_in() ) {
 
     <div class="chat-box" id="sam">
         <div class="chat-box-header" id="cbox-header"
-            style="background:<?php echo isset( $bg_color_value_settings ) ?  $bg_color_value_settings :'#5A5EB9'; ?>">
+            style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
             <span class="chat-box-toggles"><i
                     class="material-icons"><?php echo esc_html("Welcome ".$user->display_name);?></i></span>
             <span class="chat-box-toggle"><?php _e("X","acb");?></span>

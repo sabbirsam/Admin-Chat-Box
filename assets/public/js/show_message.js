@@ -20,15 +20,15 @@
         });
 
         //Get the value
-        var chat_val =  $('#sam').attr("value");
-        
-        if(chat_val == 'active'){
+        var chat_val  =  $('#sam').attr("value");
+        if(chat_val == "active"){
             document.getElementById("sam").style.display = 'block';
-        }else{
+        }
+        else{
             document.getElementById("sam").style.display = 'none';
         }
 
-
+        
         /**
          * 
          */
@@ -52,9 +52,7 @@
              })
          };
          ajaxCall(); // To output when the page loads
-         setInterval(ajaxCall, (1 * 1000)); // x * 1000 to get it in seconds
-
-         
+         setInterval(ajaxCall, (1 * 1000)); // x * 1000 to get it in seconds     
 
     });
 })(jQuery);
