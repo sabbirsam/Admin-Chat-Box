@@ -20,17 +20,32 @@ class ACB_FrontChat extends ACB_BaseController{
          * 
          */
         $plugin_url = plugin_dir_url( __FILE__ );
-       
+        
         wp_enqueue_script( 'acb_pub_bootstrap_min_js', $plugin_url .'../assets/library/bootstrap.min.js',array('jquery'),1.0,true );
         wp_enqueue_script( 'acb_pub_seeetalert_min_js', $plugin_url .'../assets/library/sweetalert2@11.js',array('jquery'),1.0,true );
         
+        /**
+         * Fetch Data and take input
+         */
         wp_enqueue_script( 'acb_public_js', $plugin_url .'../assets/public/js/show_message.js', array('jquery'),1.0,true );
         wp_localize_script( 'acb_public_js', 'show_user_inputed_data', array(
             'ajaxurl'=>admin_url("admin-ajax.php", null)
             ) );
         wp_enqueue_script('jquery');
         wp_enqueue_script('acb_public_js'); 
+
+        /**
+         * Scalling widget
+         */
+        wp_enqueue_script( 'acb_widget_js', $plugin_url .'../assets/public/js/acb_widget.js', array('jquery'),1.0,true );
+        wp_localize_script( 'acb_widget_js', 'store_acb_widget_scale_data', array(
+            'ajaxurl'=>admin_url("admin-ajax.php", null)
+            ) );
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('acb_widget_js');
+
         
+        // wp_enqueue_style( 'acb__pub_fontawesome_min_css', $plugin_url .'../assets/library/font-awesome.min.css');
         wp_enqueue_style( 'acb_pub_main_css_style', $plugin_url . '../assets/public/css/acb_styleSheet.css' );     
         wp_enqueue_style( 'acb_pub_chat_style',  $plugin_url . '../assets/public/css/chat.css' );  
        

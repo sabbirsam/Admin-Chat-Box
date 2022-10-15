@@ -23,6 +23,7 @@ final class ACB_DbTables {
         );
 
         add_option( 'acb_settings_value', json_encode($acb_default_options) );
+        add_option( 'acb_scale_settings_value', 'inactive' );
         
         global $wpdb;
         $wpdb->hide_errors();
@@ -32,11 +33,7 @@ final class ACB_DbTables {
 
         $sql = "CREATE TABLE ".$table." (
             `id` INT(255) NOT NULL AUTO_INCREMENT,
-            `email` VARCHAR(255) NOT NULL,
-            `sender` LONGTEXT,
-            `msg` LONGTEXT,
-            time datetime DEFAULT '0000-00-00' NOT NULL,
-            date datetime DEFAULT '0000-00-00' NOT NULL,
+            `data` VARCHAR(8000) NOT NULL,
             PRIMARY KEY (`id`)
         ) ENGINE=InnoDB ".$collate."";
 
