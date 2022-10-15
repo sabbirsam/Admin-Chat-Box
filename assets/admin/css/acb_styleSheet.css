@@ -423,3 +423,32 @@ td {
     background: #fff;
     box-sizing: border-box;
 }
+
+
+/* Mobile  */
+@media screen and (max-width: 844px){
+ .card{
+    width: 366px;
+ }
+
+ .toggle-label{
+  font-size: 11px;
+  margin-left: -243px;
+ }
+ .color-picker label{
+  font-size: 11px;
+ }
+
+ .c-button--arrow-left, .c-button--old--arrow-left{
+  margin-left: 15px;
+  padding-left: 50px;
+ }
+
+ .switch{
+  left:251px;
+ }
+
+ #acb_save_settings{
+  padding: 2px 37px;
+ }
+}

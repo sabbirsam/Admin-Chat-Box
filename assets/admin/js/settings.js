@@ -69,7 +69,7 @@
             $(this).attr('value', '1').css({"background": "#8500ff"});
             $('#arrow-right').attr('value', '0').css({"background": "#043263"});
             $('.chat-box').css({"left": "708px"});
-            $('#chat-circle').css({"left": "708px"});
+            $('#chat-circle').css({"left": "912px"});
            
 
          });
@@ -90,7 +90,7 @@
         }
         if(left == '1' && right == '0'){
             $('.chat-box').css({"left": "708px"});
-            $('#chat-circle').css({"left": "708px"});
+            $('#chat-circle').css({"left": "912px"});
         }
 
 

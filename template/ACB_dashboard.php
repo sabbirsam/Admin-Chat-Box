@@ -141,6 +141,7 @@ if ( is_user_logged_in() ) {
 ?>
     <br /><br />
     <br />
+
     <?php if($backend_settings == 1):?>
     <div id="chat-circle" class="btn btn-raised"
         style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
@@ -175,6 +176,7 @@ if ( is_user_logged_in() ) {
     <?php endif;?>
 </div>
 </div>
+
 <?php
 }
 else {

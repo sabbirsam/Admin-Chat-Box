@@ -1,7 +1,9 @@
 #chat-circle {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 300px;
+    right: 116px;
+    /* bottom: 50px;
+    right: 50px; */
     background: #5A5EB9;
     width: 30px;
     height: 30px;
@@ -38,11 +40,12 @@
 .chat-box {
     display: none;
     background: #efefef;
-    position: fixed;
-    /* right: 179px; */
-    right: 42px;
-    bottom: 50px;
-    /* width: 350px; */
+    /* position: fixed; */
+    position: absolute;
+    /* right: 42px; */
+    right: 97px;
+    bottom: 171px;
+    /* bottom: 50px; */
     width: 304px;
     max-width: 85vw;
     max-height: 100vh;
