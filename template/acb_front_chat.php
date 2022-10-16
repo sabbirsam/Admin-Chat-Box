@@ -94,9 +94,8 @@ if($front_end == 1):
         <form method="post" action="" id="acb_Form">
             <div class="chat-input">
                 <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
-                    data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
-                    style="height:50px;" size="60" />
-                <input type="submit" value="▶" class="commandButton chat-submit" style="height:54px;" />
+                    data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
+                <input type="submit" value="▶" class="commandButton chat-submit" />
         </form>
 </div>
 <script>

@@ -4,6 +4,7 @@
     src: url(../fonts/trebuc.ttf);
 }
 
+
 /* my css other start  */
 div#vegan {
     text-align: left;
@@ -41,8 +42,7 @@ div#vegan {
     font-style: italic;
 }
 
-.fields,
-input[type=submit] {
+input.commandButton.chat-submit {
     font-family: "Segoe UI";
     color: rgb(14, 1, 1);
     font-size: 14px;
@@ -53,89 +53,8 @@ input[type=submit] {
     cursor: pointer;
     transition: 0.5s;
     font-weight: bold;
+    height: 45px;
 }
-
-.fields:hover,
-.fields:focus,
-input[type=submit]:hover {
-    font-family: "Segoe UI";
-    color: #2F0809;
-    font-size: 14px;
-    border: 1px solid #FFF;
-    border-radius: 7px;
-    background-color: rgba(255, 255, 255, 1.00);
-    padding: 10px 10px;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 1.00);
-    cursor: pointer;
-    transition: 0.5s;
-    font-weight: bold;
-}
-
-.fields2 {
-    font-family: "Segoe UI";
-    color: #FFF;
-    font-size: 14px;
-    border: 1px solid #66F;
-    border-radius: 7px;
-    background-color: transparent;
-    padding: 10px 10px;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.commandButton {
-    border: 2px solid #66F;
-    font-family: "Segoe UI";
-    font-size: 14px;
-    color: rgb(17, 1, 1);
-    background-color: transparent;
-}
-
-/* a:link {
-    font-family: "Segoe UI";
-    color: rgb(27, 1, 1);
-    text-decoration: none;
-    font-size: 16px;
-    text-shadow: 2px 2px 3px #333333;
-} */
-/* 
-a:active {
-    font-family: "Segoe UI";
-    color: rgb(22, 2, 2);
-    text-decoration: none;
-    font-size: 16px;
-    text-shadow: 2px 2px 3px #333333;
-}
-
-a:visited {
-    font-family: "Segoe UI";
-    color: rgb(29, 3, 3);
-    text-decoration: none;
-    font-size: 16px;
-    text-shadow: 2px 2px 3px #333333;
-}
-
-a:hover {
-    font-family: "Segoe UI";
-    color: rgb(3, 20, 20);
-    text-decoration: none;
-    font-size: 16px;
-    text-shadow: 2px 2px 3px #333333;
-}
-
-.text {
-    font-family: "Segoe UI";
-    color: rgb(2, 37, 54);
-    font-size: 16px;
-    text-shadow: 0px 0px 2px #000000;
-}
-
-.info {
-    font-family: "Segoe UI";
-    color: rgb(10, 2, 1);
-    font-size: 14px;
-    text-shadow: 0px 0px 2px #000000;
-} */
 
 .nick {
     font-family: "T";

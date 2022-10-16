@@ -64,7 +64,7 @@ if ( is_user_logged_in() ) {
         }
     }
     ?>
-<div style="align:center"><br />
+<div class="acb_container" style="align:center"><br />
     <span class="heading"><?php _e("Chat Box","acb");?></span><br />
     <h2><?php _e("Settings Page","acb");?></h2>
     <!-- setting page  -->
@@ -168,9 +168,8 @@ if ( is_user_logged_in() ) {
             <form method="post" action="" id="acb_Form">
                 <div class="chat-input">
                     <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
-                        data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
-                        style="height:50px;" size="60" />
-                    <input type="submit" value="▶" class="commandButton chat-submit" style="height:54px;" />
+                        data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
+                    <input type="submit" value="▶" class="commandButton chat-submit" />
             </form>
     </div>
     <?php endif;?>
