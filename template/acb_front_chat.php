@@ -23,8 +23,8 @@ $update_left_pos_value_settings =isset( $left_pos_value_settings ) ?  $left_pos_
 $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
 $update_right_pos_value_settings =isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1';
 
-$set_get_scale_settings = get_option( 'acb_scale_settings_value');
-$get_scale_settings = substr($set_get_scale_settings, 1, -1);
+// $set_get_scale_settings = get_option( 'acb_scale_settings_value');
+// $get_scale_settings = substr($set_get_scale_settings, 1, -1);
 
 
 /**
@@ -75,12 +75,12 @@ if($front_end == 1):
     <i class="fa fa-comments"></i>
     <div id="chat-overlay"></div>
 </div>
-<div class="chat-box" id="sam" value=<?php echo esc_attr( $get_scale_settings,'acb' ) ?>
-    style="<?php echo esc_attr($pos_value, 'acb') ?>">
+
+<div class="chat-box" id="sam" style="<?php echo esc_attr($pos_value, 'acb') ?>">
     <div class="chat-box-header" id="cbox-header"
         style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb') ?>">
-        <span class="chat-box-toggles"><i
-                class="material-icons"><?php echo esc_attr("Welcome ".$user->display_name);?></i></span>
+        <span value="<?php echo esc_attr($user->display_name) ?>" class="chat-box-toggles"
+            id="acb_display_name"><?php echo esc_attr("Welcome ".$user->display_name);?></span>
         <span class="chat-box-toggle"><?php _e("X","acb");?></span>
     </div>
     <div class="chat-box-body" id="vegan">

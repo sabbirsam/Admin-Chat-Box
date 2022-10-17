@@ -9,40 +9,29 @@
          */
 
         $("#chat-circle").click(function() {
-            var chat_val =  $('#sam').attr("value");
-            var data = {
-                action: "store_acb_widget_scale_data",
-                scale: chat_val,
-            };
-
-            $.ajax({
-                url: store_acb_widget_scale_data.ajaxurl,
-                data: data,
-                type: "post",
-                success: function(results) {
-                    console.log(data)
-                }
-            });
-
+            localStorage.setItem('acb_scale', 'active');    
         });
-    
+
+        // localStorage.setItem('scale', 1);
+        // console.log(localStorage.getItem("scale"));
+        // localStorage.removeItem('scale');
+        // let cartItems = localStorage.getItem("productsInCart");
+        // var jsonString = JSON.stringify(cartItems);
+
         $(".chat-box-toggle").click(function() {
-            var chat_val =  $('#sam').attr("value");
-            var data = {
-                action: "store_acb_widget_scale_data",
-                scale: chat_val,
-            };
+            localStorage.setItem('acb_scale', 'inactive');
 
-            $.ajax({
-                url: store_acb_widget_scale_data.ajaxurl,
-                data: data,
-                type: "post",
-                success: function(results) {
-                    console.log(data)
-                }
-            });
         });
-         
+
+        let scaleItems = localStorage.getItem("acb_scale");
+        console.log(scaleItems);
+
+        if(scaleItems == "active"){
+            document.getElementById("sam").style.display = 'block';
+        }
+        else{
+            document.getElementById("sam").style.display = 'none';
+        }  
 
     });
 })(jQuery);

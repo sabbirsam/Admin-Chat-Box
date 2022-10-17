@@ -54,6 +54,8 @@ if(!class_exists('ACB_AdminChatBox')){
          */
         function register(){
             add_action("plugins_loaded", array( $this, 'acb_load' )); 
+            add_action("activated_plugin", array( $this, 'acb_plugin_activation' )); 
+
         }
         /**
          * Language load
@@ -73,6 +75,15 @@ if(!class_exists('ACB_AdminChatBox')){
             new ACB_AjaxHandler();
             new ACB_BaseController();
 
+        }
+        /**
+         * While active the plugin redirect
+         */
+        function acb_plugin_activation($plugin){
+            if (plugin_basename(__FILE__) == $plugin) {
+                wp_redirect(admin_url('admin.php?page=admin_chat_box'));
+                die();
+            }
         }
         /**
          * Activation Hook

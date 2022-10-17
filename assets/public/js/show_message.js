@@ -10,25 +10,18 @@
 
         $("#chat-circle").click(function() {
             $(".chat-box").toggle('scale');
-            $(".chat-box").attr('value', 'active');
         });
     
         $(".chat-box-toggle").click(function() {
             $(".chat-box").toggle('scale');
-            $(".chat-box").attr('value', 'inactive');
-    
         });
 
-        //Get the value
-        var chat_val  =  $('#sam').attr("value");
-        if(chat_val == "active"){
-            document.getElementById("sam").style.display = 'block';
-        }
-        else{
-            document.getElementById("sam").style.display = 'none';
-        }
-
-        
+        /**
+         * Get chat user name
+         */
+         var spanValue = $("#cbox-header span").attr("value");
+         console.log(spanValue);
+     
         /**
          * 
          */
