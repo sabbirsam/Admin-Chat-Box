@@ -20,12 +20,7 @@
         };
         ajaxCall(); // To output when the page loads
         setInterval(ajaxCall, (1 * 1000)); // x * 1000 to get it in seconds  
-     /**
-     * Show the chat box open
-     */
-    //    window.onload = function() {
-    //     document.getElementById("sam").style.display = 'block';
-    // };
+       // window.onload = function() { document.getElementById("sam").style.display = 'block';};
 
     /**
      * Set local storage for chat box

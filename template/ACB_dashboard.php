@@ -70,6 +70,10 @@ if ( is_user_logged_in() ) {
     <!-- setting page  -->
     <!-- frontend page  -->
     <div class="card">
+
+        <?php 
+        if( current_user_can('editor') || current_user_can('administrator') ){
+                ?>
         <label class="switch" for="acb_frontend">
             <span class="toggle-label"><?php _e("Chat BoxActivate frontend widgets:","acb");?></span>
             <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo _e("checked","acb");}?>
@@ -110,6 +114,11 @@ if ( is_user_logged_in() ) {
         <!-- button position end -->
         <br>
         <br>
+
+        <?php 
+            }
+        ?>
+
         <!-- Customization page  -->
         <label class="switch" for="acb_customization">
             <span class="toggle-label"><?php _e("Customization:","acb");?></span>
@@ -134,8 +143,8 @@ if ( is_user_logged_in() ) {
             <span class="toggle-label"><?php _e("Save setting:","acb");?></span>
             <button id="acb_save_settings">SAVE</button>
         </label>
-
     </div>
+
     <!-- setting page  -->
     <?php 
 ?>

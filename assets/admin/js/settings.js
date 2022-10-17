@@ -163,12 +163,12 @@
             /**
              * Ajax values
              */
-            var acb_frontend = $('#acb_frontend').attr("value");
-            var acb_backend = $('#acb_backend').attr("value");
-            var acb_position = $('#acb_position').attr("value");
-            var acb_customization = $('#acb_customization').attr("value");
-            var acb_position_settings_left_val = $('#arrow-left').attr("value");
-            var acb_position_settings_right_val = $('#arrow-right').attr("value");
+            var acb_frontend = $('#acb_frontend').attr("value") || 1;
+            var acb_backend = $('#acb_backend').attr("value") || 1;
+            var acb_position = $('#acb_position').attr("value") || 1;
+            var acb_customization = $('#acb_customization').attr("value") || '#6a1f06';
+            var acb_position_settings_left_val = $('#arrow-left').attr("value") || 0;
+            var acb_position_settings_right_val = $('#arrow-right').attr("value") || 1;
 
             var data = {
                 action: "acb_data_truncate",

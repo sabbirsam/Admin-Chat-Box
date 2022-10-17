@@ -22,7 +22,6 @@ $update_left_pos_value_settings =isset( $left_pos_value_settings ) ?  $left_pos_
 
 $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
 $update_right_pos_value_settings =isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1';
-
 // $set_get_scale_settings = get_option( 'acb_scale_settings_value');
 // $get_scale_settings = substr($set_get_scale_settings, 1, -1);
 
