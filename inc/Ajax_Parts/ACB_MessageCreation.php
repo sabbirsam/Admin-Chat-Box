@@ -14,7 +14,6 @@ class ACB_MessageCreation {
          * Message fetch from database
          */
         $this->ACB_message_truncate();
-        $this->ACB_store_acb_widget_scale_data();
         $this->ACB_message_creation();
     }
     public function ACB_message_truncate() {
@@ -57,13 +56,6 @@ class ACB_MessageCreation {
                 update_option( 'acb_settings_value', json_encode($settings_page));
                 die();
             }
-        }
-    }
-    public function ACB_store_acb_widget_scale_data() {
-        $acb_scale_data = $_POST['scale'];
-        if($acb_scale_data == 'active' || $acb_scale_data == 'inactive'){
-            update_option( 'acb_scale_settings_value', json_encode($acb_scale_data));
-            die();
         }
     }
     /**
