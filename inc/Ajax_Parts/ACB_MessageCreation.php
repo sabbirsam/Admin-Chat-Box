@@ -14,7 +14,6 @@ class ACB_MessageCreation {
          * Message fetch from database
          */
         $this->ACB_message_truncate();
-        $this->ACB_store_acb_widget_scale_data();
         $this->ACB_message_creation();
     }
     public function ACB_message_truncate() {
@@ -59,13 +58,6 @@ class ACB_MessageCreation {
             }
         }
     }
-    public function ACB_store_acb_widget_scale_data() {
-        $acb_scale_data = $_POST['scale'];
-        if($acb_scale_data == 'active' || $acb_scale_data == 'inactive'){
-            update_option( 'acb_scale_settings_value', json_encode($acb_scale_data));
-            die();
-        }
-    }
     /**
      * Fetch data from db 
      */
@@ -81,8 +73,8 @@ class ACB_MessageCreation {
                 $all_data = $test->data;
                 $manage = json_decode($all_data);
                 ?>
-<span class="nick" style="color: black"><?php echo esc_html($manage->acb_user_name); ?></span>: <span
-    class="msg"><?php echo esc_html($manage->acb_user_msg); ?>
+<span class="nick" style="color: black"><?php echo esc_html($manage->acb_user_name); ?></span>: <span class="msg"
+    id="incoming_msg" data-id="<?php echo esc_html($manage->user_id) ?>"><?php echo esc_html($manage->acb_user_msg); ?>
     <br>
     <span style="font-size:10px;color:#5a3c04;">
         <?php echo date("M d, Y > h:i A", strtotime(esc_html($manage->acb_msg_date))); ?>

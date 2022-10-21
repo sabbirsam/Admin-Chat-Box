@@ -4,8 +4,9 @@ if ( is_user_logged_in() ) {
      * Get User name and email
      */
     $user = wp_get_current_user();
+    $acb_user_id= get_current_user_id();
     $email = esc_attr($user->user_email);
-    $name = esc_attr($user->display_name);  
+    $name = esc_attr($user->display_name); 
     /**
     * Get Option page value for the backend setting
     **/  
@@ -14,7 +15,7 @@ if ( is_user_logged_in() ) {
     /**
      * Escappint
      */
-    
+   
     // $front_end = esc_attr($settings_update->acb_frontend_settings);
     $front_end = $settings_update->acb_frontend_settings;
      $update_front_end =isset( $front_end ) ?  $front_end :'0';
@@ -46,6 +47,7 @@ if ( is_user_logged_in() ) {
         $date = date('Y-m-d H:i:s');
 
         $raw_input_data = array(
+            'user_id'=>$acb_user_id,
             'acb_user_email'=>$email,
             'acb_user_name'=>$name,
             'acb_user_msg'=>$msg,
@@ -64,12 +66,16 @@ if ( is_user_logged_in() ) {
         }
     }
     ?>
-<div style="align:center"><br />
+<div class="acb_container" style="align:center"><br />
     <span class="heading"><?php _e("Chat Box","acb");?></span><br />
     <h2><?php _e("Settings Page","acb");?></h2>
     <!-- setting page  -->
     <!-- frontend page  -->
     <div class="card">
+
+        <?php 
+        if( current_user_can('editor') || current_user_can('administrator') ){
+                ?>
         <label class="switch" for="acb_frontend">
             <span class="toggle-label"><?php _e("Chat BoxActivate frontend widgets:","acb");?></span>
             <input type="checkbox" id="acb_frontend" <?php if($front_end == 1){echo _e("checked","acb");}?>
@@ -110,6 +116,11 @@ if ( is_user_logged_in() ) {
         <!-- button position end -->
         <br>
         <br>
+
+        <?php 
+            }
+        ?>
+
         <!-- Customization page  -->
         <label class="switch" for="acb_customization">
             <span class="toggle-label"><?php _e("Customization:","acb");?></span>
@@ -134,13 +145,14 @@ if ( is_user_logged_in() ) {
             <span class="toggle-label"><?php _e("Save setting:","acb");?></span>
             <button id="acb_save_settings">SAVE</button>
         </label>
-
     </div>
+
     <!-- setting page  -->
     <?php 
 ?>
     <br /><br />
     <br />
+
     <?php if($backend_settings == 1):?>
     <div id="chat-circle" class="btn btn-raised"
         style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
@@ -164,17 +176,18 @@ if ( is_user_logged_in() ) {
             <!--chat-log -->
         </div>
         <form method="post" action="" id="acb_Form">
-            <form method="post" action="" id="acb_Form">
-                <div class="chat-input">
-                    <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
-                        data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
-                        style="height:50px;" size="60" />
-                    <input type="submit" value="▶" class="commandButton chat-submit" style="height:54px;" />
-            </form>
+            <div class="chat-input">
+                <input type="text" class="incoming_id" name="incoming_id"
+                    value="<?php echo esc_attr( $acb_user_id,'acb' ) ?>" hidden>
+                <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
+                    data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
+                <input type="submit" value="▶" class="commandButton chat-submit" />
+        </form>
     </div>
     <?php endif;?>
 </div>
 </div>
+
 <?php
 }
 else {

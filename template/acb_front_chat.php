@@ -3,6 +3,7 @@
  * Get User name and email
  */
 $user = wp_get_current_user();
+$acb_user_id= get_current_user_id();
 $email = esc_attr($user->user_email);
 $name = esc_attr($user->display_name);   
 /**
@@ -22,9 +23,8 @@ $update_left_pos_value_settings =isset( $left_pos_value_settings ) ?  $left_pos_
 
 $right_pos_value_settings = $settings_update->acb_right_pos_value_settings;
 $update_right_pos_value_settings =isset( $right_pos_value_settings ) ?  $right_pos_value_settings :'1';
-
-$set_get_scale_settings = get_option( 'acb_scale_settings_value');
-$get_scale_settings = substr($set_get_scale_settings, 1, -1);
+// $set_get_scale_settings = get_option( 'acb_scale_settings_value');
+// $get_scale_settings = substr($set_get_scale_settings, 1, -1);
 
 
 /**
@@ -48,6 +48,7 @@ if(isset($_POST['msg'])){
         $date = date('Y-m-d H:i:s');
 
         $raw_input_data = array(
+            'user_id'=>$acb_user_id,
             'acb_user_email'=>$email,
             'acb_user_name'=>$name,
             'acb_user_msg'=>$msg,
@@ -71,16 +72,15 @@ if($front_end == 1):
 ?>
 <div id="chat-circle" class="btn btn-raised"
     style="<?php echo esc_attr($pos_value, 'acb') ?>; background:<?php echo esc_attr( $update_bg_color_value_settings,'acb' ) ?>">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <i class="fa fa-comments"></i>
     <div id="chat-overlay"></div>
 </div>
-<div class="chat-box" id="sam" value=<?php echo esc_attr( $get_scale_settings,'acb' ) ?>
-    style="<?php echo esc_attr($pos_value, 'acb') ?>">
+
+<div class="chat-box" id="sam" style="<?php echo esc_attr($pos_value, 'acb') ?>">
     <div class="chat-box-header" id="cbox-header"
         style="background:<?php echo esc_attr( $update_bg_color_value_settings,'acb') ?>">
-        <span class="chat-box-toggles"><i
-                class="material-icons"><?php echo esc_attr("Welcome ".$user->display_name);?></i></span>
+        <span value="<?php echo esc_attr($user->display_name) ?>" class="chat-box-toggles"
+            id="acb_display_name"><?php echo esc_attr("Welcome ".$user->display_name);?></span>
         <span class="chat-box-toggle"><?php _e("X","acb");?></span>
     </div>
     <div class="chat-box-body" id="vegan">
@@ -91,13 +91,13 @@ if($front_end == 1):
         <!--chat-log -->
     </div>
     <form method="post" action="" id="acb_Form">
-        <form method="post" action="" id="acb_Form">
-            <div class="chat-input">
-                <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
-                    data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required"
-                    style="height:50px;" size="60" />
-                <input type="submit" value="▶" class="commandButton chat-submit" style="height:54px;" />
-        </form>
+        <div class="chat-input">
+            <input type="text" id="incoming_id" name="incoming_id" value="<?php echo esc_attr( $acb_user_id,'acb' ) ?>"
+                hidden>
+            <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
+                data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
+            <input type="submit" value="▶" class="commandButton chat-submit" />
+    </form>
 </div>
 <script>
 if (window.history.replaceState) {

@@ -7,7 +7,7 @@ defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 /**
  * Admin dashboard created 
  */
-class ACB_FrontChat extends ACB_BaseController{
+class ACB_FrontChat{
     function __construct(){
         add_action( 'wp_enqueue_scripts', array( $this, 'ACB_public_enqueue' ) ); 
         add_action("wp_footer", array($this, 'add_chatbox_front_widget'));
@@ -38,14 +38,6 @@ class ACB_FrontChat extends ACB_BaseController{
          * Scalling widget
          */
         wp_enqueue_script( 'acb_widget_js', $plugin_url .'../assets/public/js/acb_widget.js', array('jquery'),1.0,true );
-        wp_localize_script( 'acb_widget_js', 'store_acb_widget_scale_data', array(
-            'ajaxurl'=>admin_url("admin-ajax.php", null)
-            ) );
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('acb_widget_js');
-
-        
-        // wp_enqueue_style( 'acb__pub_fontawesome_min_css', $plugin_url .'../assets/library/font-awesome.min.css');
         wp_enqueue_style( 'acb_pub_main_css_style', $plugin_url . '../assets/public/css/acb_styleSheet.css' );     
         wp_enqueue_style( 'acb_pub_chat_style',  $plugin_url . '../assets/public/css/chat.css' );  
        
