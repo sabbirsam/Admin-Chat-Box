@@ -4,8 +4,9 @@ if ( is_user_logged_in() ) {
      * Get User name and email
      */
     $user = wp_get_current_user();
+    $acb_user_id= get_current_user_id();
     $email = esc_attr($user->user_email);
-    $name = esc_attr($user->display_name);  
+    $name = esc_attr($user->display_name); 
     /**
     * Get Option page value for the backend setting
     **/  
@@ -14,7 +15,7 @@ if ( is_user_logged_in() ) {
     /**
      * Escappint
      */
-    
+   
     // $front_end = esc_attr($settings_update->acb_frontend_settings);
     $front_end = $settings_update->acb_frontend_settings;
      $update_front_end =isset( $front_end ) ?  $front_end :'0';
@@ -46,6 +47,7 @@ if ( is_user_logged_in() ) {
         $date = date('Y-m-d H:i:s');
 
         $raw_input_data = array(
+            'user_id'=>$acb_user_id,
             'acb_user_email'=>$email,
             'acb_user_name'=>$name,
             'acb_user_msg'=>$msg,
@@ -174,12 +176,13 @@ if ( is_user_logged_in() ) {
             <!--chat-log -->
         </div>
         <form method="post" action="" id="acb_Form">
-            <form method="post" action="" id="acb_Form">
-                <div class="chat-input">
-                    <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
-                        data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
-                    <input type="submit" value="▶" class="commandButton chat-submit" />
-            </form>
+            <div class="chat-input">
+                <input type="text" class="incoming_id" name="incoming_id"
+                    value="<?php echo esc_attr( $acb_user_id,'acb' ) ?>" hidden>
+                <input name="msg" id="msg" class="fields" type="text" placeholder="Enter Your Message"
+                    data-nonce="<?php echo wp_create_nonce('acb_msg_post_nonce') ?>" required="required" />
+                <input type="submit" value="▶" class="commandButton chat-submit" />
+        </form>
     </div>
     <?php endif;?>
 </div>

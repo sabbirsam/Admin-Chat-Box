@@ -12,12 +12,6 @@
             localStorage.setItem('acb_scale', 'active');    
         });
 
-        // localStorage.setItem('scale', 1);
-        // console.log(localStorage.getItem("scale"));
-        // localStorage.removeItem('scale');
-        // let cartItems = localStorage.getItem("productsInCart");
-        // var jsonString = JSON.stringify(cartItems);
-
         $(".chat-box-toggle").click(function() {
             localStorage.setItem('acb_scale', 'inactive');
 
@@ -32,6 +26,15 @@
         else{
             document.getElementById("sam").style.display = 'none';
         }  
+
+        /**
+         * Design
+         */
+        //  var msg_disp = $('#incoming_id').attr("value");
+        //  if(msg_disp){
+        //     $("#vegan").css({"text-align": 'left'});
+        //  }
+         
 
     });
 })(jQuery);

@@ -73,8 +73,8 @@ class ACB_MessageCreation {
                 $all_data = $test->data;
                 $manage = json_decode($all_data);
                 ?>
-<span class="nick" style="color: black"><?php echo esc_html($manage->acb_user_name); ?></span>: <span
-    class="msg"><?php echo esc_html($manage->acb_user_msg); ?>
+<span class="nick" style="color: black"><?php echo esc_html($manage->acb_user_name); ?></span>: <span class="msg"
+    id="incoming_msg" data-id="<?php echo esc_html($manage->user_id) ?>"><?php echo esc_html($manage->acb_user_msg); ?>
     <br>
     <span style="font-size:10px;color:#5a3c04;">
         <?php echo date("M d, Y > h:i A", strtotime(esc_html($manage->acb_msg_date))); ?>
